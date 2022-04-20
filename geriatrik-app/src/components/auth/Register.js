@@ -29,7 +29,7 @@ const Register = props => {
             //passwords do not match
         }else{
             //register
-            navigate('/');
+            navigate('/home');
         }
     }
     
@@ -45,7 +45,7 @@ const Register = props => {
                     <input placeholder='Confirmar Contraseña' type='password' name = 'password2' value={password2} onChange = {onChange} required minLength={6}/>
                     <input type="submit" value = "Registarse"/>
                 </form>
-                <button className='btn-back' onClick={() => navigate('/login', { replace: true })}> Atrás</button>
+                <button className='btn-back' onClick={() => navigate('/', { replace: true })}> Atrás</button>
 
             </div>
             <div>

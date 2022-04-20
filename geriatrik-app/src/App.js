@@ -11,8 +11,8 @@ function App() {
         <Router>
             <Fragment>
                 <Routes>
-                    <Route exact path='/' element = {<Home/>}/>
-                    <Route exact path='/login' element = {<Login/>}/>
+                    <Route exact path='/' element = {<Login/>}/>
+                    <Route exact path='/home' element = {<Home/>}/>
                     <Route exact path='/Register' element = {<Register/>}/>
                 </Routes>
             </Fragment>

@@ -16,7 +16,7 @@ const Login = () => {
 
     const onSubmit = e => {
         e.preventDefault();
-        navigate('/');
+        navigate('/home');
         /*if(email === '' || password === ''){
             //missing inputs
         }else{
