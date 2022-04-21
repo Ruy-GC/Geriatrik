@@ -1,6 +1,8 @@
 import React, {useState} from 'react'
 import { useNavigate  } from "react-router-dom"
 import login from '../layout/images/login.PNG'
+import './auth.css'
+
 const Login = () => {
 
     const navigate = useNavigate ();

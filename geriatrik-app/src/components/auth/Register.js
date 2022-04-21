@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import { useNavigate  } from "react-router-dom"
 import login from '../layout/images/login.PNG'
+import './auth.css'
 
 const Register = props => {
     
@@ -10,7 +11,8 @@ const Register = props => {
     //user register fields
     const [user,setUser] = useState({
         name: '',
-        lname: '',
+        lastnameP: '',
+        lastnameM: '',
         date: '',
         type: '',
         sex: '',
@@ -20,7 +22,7 @@ const Register = props => {
         password2: ''
     });
 
-    const {name,lname,date,cedula,email,password,password2} = user;
+    const {name,lastnameP,lastnameM,date,cedula,email,password,password2} = user;
 
     //copies user data and changes the target of the onchange
     const onChange = e => setUser({...user, [e.target.name]:e.target.value});
@@ -73,7 +75,7 @@ const Register = props => {
                         <div className='grid-2'>
                             <div>
                                 <input placeholder='Nombre' type='text' name = 'name' value={name} onChange = {onChange} required/>
-                                <input placeholder='Apellido' type='text' name = 'lname' value={lname} onChange = {onChange} required/>
+                                <input placeholder='Apellido Paterno' type='text' name = 'lastnameP' value={lastnameP} onChange = {onChange} required/>
                                 <input placeholder='Fecha de nacimiento' type='date' name = 'date' value={date} onChange = {onChange} required/>
                                 <select id="empleados" name='type' onChange = {onChange}>
                                     <option value="Médic@">Médic@</option>
@@ -86,6 +88,7 @@ const Register = props => {
                             </div>
                             <div>
                                 <input placeholder='Cédula' type='text' name = 'cedula' value={cedula} onChange = {onChange} required/>
+                                <input placeholder='Apellido Materno' type='text' name = 'lastnameM' value={lastnameM} onChange = {onChange} required/>
                                 <input placeholder='Correo Electrónico' type='email' name = 'email' value={email} onChange = {onChange} required/>
                                 <div>
                                     <i className="bi bi-eye" id="togglePassword" onClick={showPassword}/>
