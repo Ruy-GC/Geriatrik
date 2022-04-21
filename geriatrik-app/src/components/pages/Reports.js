@@ -1,6 +1,6 @@
 import React from 'react'
 import Navbar from '../Navbar'
-const Home = () => {
+const Reports = () => {
   return (
     <div>Home
 <Navbar />
