@@ -34,8 +34,7 @@ function App() {
                 </a>
             </header>
             </div>*/}
-        </Router>
-        
+    </Router>
   );
 }
 
