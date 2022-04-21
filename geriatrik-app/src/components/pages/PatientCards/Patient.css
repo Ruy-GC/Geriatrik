@@ -1,0 +1,77 @@
+
+
+
+body{
+    font: poppins;
+    margin: 2rem;
+}
+
+.Card{
+    display:grid;
+    grid-template-columns: (auto-fit, minmax(16rem, 20rem));
+    gap: 2rem;
+    justify-content: start;
+}
+
+
+.CardInfo{
+    overflow: hidden;
+    box-shadow: 0 2px 20px gray;
+    border-radius: 10px;
+    display: felx;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor:pointer;
+    transition: transform 200ms ease-in;
+}
+
+.CardRegistry{
+    overflow: hidden;
+    box-shadow: 0 2px 20px gray;
+    border-radius: 10px;
+    display: felx;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor:pointer;
+    transition: transform 200ms ease-in;
+}
+
+.PatientImg{
+    height: 12rem;
+    width: 100%;
+    object-fit: cover;
+    clip-path: circle();
+    margin-top: 2rem;
+}
+
+.PatientName{
+    display: flex;
+    justify-content: space-around;
+    font-style: bold;
+}
+
+.PatientAge{
+    display: flex;
+    justify-content: center;
+    font-style: italic;
+}
+
+.PatientSex{
+    display: flex;
+    justify-content: center;
+}
+
+.PatientRegistryT{
+    margin-right: 1rem;
+    margin-left: 1rem;
+    margin-bottom: 0px;
+}
+
+.PatientRegistryA{
+    font-size: 20px;
+    margin-top:0px;
+    margin-bottom: 0.5rem;
+    margin-left: 1rem;
+}
+
+
