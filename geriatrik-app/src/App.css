@@ -59,6 +59,10 @@ textarea {
   outline: none;
 }
 
+select{
+  cursor: pointer;
+}
+
 input[type='submit'] {
   font: inherit;
   padding: 10px;
@@ -122,8 +126,23 @@ input[type='submit']:active,
   float: right;
   overflow: hidden;
   max-width: 600px;
-  margin-top: 10%;
+  margin-top: 15%;
   margin-right: 25%;
+}
+
+#togglePassword2,
+#togglePassword{
+  position: relative;
+  left: 90%;
+  top: 10px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+#password2,
+#password{
+  margin-left: 15px;
+  margin-top: -25px;
 }
 
 @keyframes App-logo-spin {
