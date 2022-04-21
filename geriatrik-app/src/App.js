@@ -1,22 +1,24 @@
-import logo from './logo.svg';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import React, {Fragment} from 'react';
-import './App.css';
-import Login from './components/auth/Login';
-import Register from './components/auth/Register';
-import Home from './components/pages/Home';
+import logo from "./logo.svg";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import React, { Fragment } from "react";
+import "./App.css";
+import Login from "./components/auth/Login";
+import Register from "./components/auth/Register";
+import Home from "./components/pages/Home";
+import Reports from "./components/pages/Home";
+import Navbar from "./components/Navbar";
 
 function App() {
-    return (
-        <Router>
-            <Fragment>
-                <Routes>
-                    <Route exact path='/' element = {<Login/>}/>
-                    <Route exact path='/home' element = {<Home/>}/>
-                    <Route exact path='/Register' element = {<Register/>}/>
-                </Routes>
-            </Fragment>
-            {/*<div className="App">
+  return (
+    <Router>
+      <Fragment>
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route exact path="/reports" element={<Reports />} />
+          <Route exact path="/logout" element={<Register />} />
+        </Routes>
+      </Fragment>
+      {/*<div className="App">
             <header className="App-header">
                 <img src={logo} className="App-logo" alt="logo" />
                 <p>
@@ -32,8 +34,7 @@ function App() {
                 </a>
             </header>
             </div>*/}
-        </Router>
-        
+    </Router>
   );
 }
 
