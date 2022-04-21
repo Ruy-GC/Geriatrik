@@ -44,6 +44,7 @@ input[type='text'],
 input[type='email'],
 input[type='password'],
 input[type='date'],
+input,
 select,
 textarea {
   display: block;
@@ -68,6 +69,7 @@ input[type='submit'] {
   margin: 15px;
   font-size: 18px;
   cursor: pointer;
+  width: fit-content;
 }
 
 input[type='submit']:active,
@@ -159,10 +161,7 @@ input[type='submit']:active,
   }
 
   .form-container {
-    margin-top: 5%;
-    margin-left: 5%;
-    margin-right: 5%;
-
+    margin: 5%;
   }
 
   .grid-2 {
