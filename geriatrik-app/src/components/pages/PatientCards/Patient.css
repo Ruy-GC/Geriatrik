@@ -47,6 +47,7 @@ body{
 .PatientName{
     display: flex;
     justify-content: space-around;
+    font-style: bold;
 }
 
 .PatientAge{

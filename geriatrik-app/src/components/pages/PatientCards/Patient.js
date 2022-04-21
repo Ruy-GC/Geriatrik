@@ -26,7 +26,7 @@ const PatientInfo =(props) =>{
             <img className='PatientImg' src={OldMan}/>
             <h1 className='PatientName'>{props.name}</h1>
             <h2 className='PatientAge'>Edad: {props.age}</h2>
-            <h3 className='PatientSex'>Sexo: {props.sex}</h3>
+            <h2 className='PatientSex'>Sexo: {props.sex}</h2>
         </div>
     </div>
     )
