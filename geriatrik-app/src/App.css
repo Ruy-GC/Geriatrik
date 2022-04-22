@@ -204,3 +204,53 @@ h4 {
 }
 
 /* END OF CSS FOR HOME AND PATIENTS VIEWS */
+
+/* ADD PATIENT BUTTON */
+.addPatientButton{
+  position: absolute;
+  cursor: pointer;
+  width: 77px;
+  height: 75px;
+  bottom:0.5%;
+  right:0.5%;
+
+  background: #316CB0;
+
+
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;  border-radius: 50px;
+  border-radius: 50px;
+}
+.addPatientButton:after {
+  content: '';
+  position: absolute;
+  transform: translate(-50%, -50%);
+  height: 4px;
+  width: 50%;
+  background: #fff;
+  top: 50%;
+  left: 50%;
+}
+
+.addPatientButton:before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  height: 50%;
+  width: 4px;
+}
+
+.addPatientButton:hover:before,
+.addPatientButton:hover:after {
+  background: #fff;
+  transition: 0.2s;
+}
+
+.addPatientButton:hover {
+  background-color: #28588f;
+  transition: 0.2s;
+}
+
+/* END OF PATIENT BUTTON */
