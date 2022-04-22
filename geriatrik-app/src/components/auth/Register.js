@@ -103,7 +103,7 @@ const Register = props => {
                         <br/>
                     <input type="submit" value = "Registarse"/>
                 </form>
-                <button style = {{marginBottom:'5%'}} className='btn-back' onClick={() => navigate('/', { replace: true })}> Atrás</button>
+                <button style = {{marginBottom:'5%'}} className='btn-back' onClick={() => navigate('/')}> Atrás</button>
             </div>
             <div>
                 <center>
