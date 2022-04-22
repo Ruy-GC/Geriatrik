@@ -1,0 +1,61 @@
+:root {
+    --primary: #D93232;
+    --primary--hover: #b92121;
+    --secondary: #10BF2C;
+    --secondary--hover:rgb(24, 136, 43);
+    --white: #fff;
+}
+
+.btn {
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    cursor: pointer;
+
+    
+    height: 54px;
+    transition: transform 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+}
+
+/* Colores de Botón */
+
+.btn--primary--solid {
+    background-color: var(--primary);
+    color: var(--white);
+    border: none;
+    float: left;
+    
+    border-radius: 50px;
+}
+
+.btn--primary--solid:hover {
+    background-color: var(--primary--hover);
+}
+
+.btn--secondary--solid {
+    background-color: var(--secondary);
+    color: var(--white);
+    border: none;
+
+    border-radius: 50px;
+}
+
+.btn--secondary--solid:hover {
+    background-color: var(--secondary--hover);
+}
+
+.btn--medium {
+    width: 280;
+
+    font-size: 18px;
+}
+
+.btn--large {
+    width: 300px;
+    padding: 0px 25px;
+    font-size: 15px;
+    
+}
