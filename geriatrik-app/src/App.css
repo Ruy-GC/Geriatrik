@@ -52,7 +52,7 @@ body{
 /* CSS FOR HOME AND PATIENTS VIEWS */
 
 .centered-home{
-  height: 90vh;
+  height: 80vh;
   margin: auto;
   padding: 10px;
   justify-content: center;
