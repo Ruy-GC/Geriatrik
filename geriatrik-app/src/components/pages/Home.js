@@ -6,8 +6,19 @@ import viewlist_filled from '../../images/viewlist_filled.png'
 import viewlist_unfilled from '../../images/viewlist_unfilled.png'
 import dataset_filled from '../../images/dataset_filled.png'
 import dataset_unfilled from '../../images/dataset_unfilled.png'
+import { IconBase } from 'react-icons'
 
 const Home = () => {
+  const loadPatients = () => {
+    fetch("/patients").then((res) => res.json()).then((data) => setData(data.message));
+  }
+  const [datos, setData] = React.useState(null);
+  React.useEffect(() => {
+    fetch("/patients")
+      .then((res) => res.json())
+      .then((data) => setData(data.message));
+  }, []);
+
   const [tipoVista, setVista] = useState("Grid");
   const [patients, setPatients] = useState([
     {
@@ -110,6 +121,9 @@ const Home = () => {
     },
   ]);
 
+  //loadPatients(); En caso de que quieran drenar la memoria activenlo, pero se activa un listener para nuevos datos
+  // Es decir que nunca mas necesitarian 
+
   var view;
   var buttonDataset;
   var buttonList;
@@ -119,7 +133,8 @@ const Home = () => {
     view =  
           <div className='view-wrapper'>
             <div className='central-bubble-view'>
-              {patients.map((currentPatient) => {
+              {!datos ? "loading..." : 
+              datos.map((currentPatient) => {
                 return(
                   <BubbleCard
                     patientObj={currentPatient}
@@ -139,7 +154,9 @@ const Home = () => {
     view = 
           <div className='view-wrapper'>
             <div className='central-table-view'>
-              <table className="styled-table">
+              {
+                !datos ? "loading...": 
+                <table className="styled-table">
                 <thead>
                     <tr>
                         <th></th>
@@ -156,7 +173,8 @@ const Home = () => {
                     </tr>
                 </thead>
                 <tbody>
-                  {patients.map((currentPatient) => {
+                  {
+                  datos.map((currentPatient) => {
                     return(
                       <ListCard
                         patientObj={currentPatient}
@@ -169,6 +187,7 @@ const Home = () => {
                   })} 
                 </tbody>
               </table>
+              }
             </div>
           </div> 
     buttonDataset = <button className='home-buttons'><img  src={dataset_unfilled} className='home-buttons'alt="sdas"onClick={() => setVista("Grid")} /></button>
