@@ -11,8 +11,8 @@ const BubbleCard = (props, {currentPatient}) => {
                         alt="pp"
                     />
                 </div>
-                <h2>{props.name} {props.patientObj.apellidoP}</h2>
             </div>
+            <h2>{props.name} {props.patientObj.apellidoP}</h2>
         </div>
     );
   };

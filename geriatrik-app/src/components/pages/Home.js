@@ -64,7 +64,7 @@ const Home = () => {
       quejaMemoria: true,
       hipoacusia_severa: true,
       contactoEmergencia: 3311222297,
-      imagenPerfil: "https://pbs.twimg.com/media/D_fg33LX4AAgpda?format=jpg&name=900x900",
+      imagenPerfil: "https://i.pinimg.com/474x/06/28/60/0628609683c9242c15b227ac5fcaa193.jpg",
     },
     {
       pacienteID: 5,
@@ -121,15 +121,13 @@ const Home = () => {
             <div className='central-bubble-view'>
               {patients.map((currentPatient) => {
                 return(
-                  <div>
-                    <BubbleCard
-                      patientObj={currentPatient}
-                      key={currentPatient.pacienteID}
-                      name={currentPatient.nombre}
-                      img={currentPatient.imagenPerfil}
-                      role={currentPatient.escolaridad}
-                    />
-                  </div>
+                  <BubbleCard
+                    patientObj={currentPatient}
+                    key={currentPatient.pacienteID}
+                    name={currentPatient.nombre}
+                    img={currentPatient.imagenPerfil}
+                    role={currentPatient.escolaridad}
+                  />
                 );
               })}
             </div>
@@ -141,7 +139,7 @@ const Home = () => {
     view = 
           <div className='view-wrapper'>
             <div className='central-table-view'>
-              <table class="styled-table">
+              <table className="styled-table">
                 <thead>
                     <tr>
                         <th></th>

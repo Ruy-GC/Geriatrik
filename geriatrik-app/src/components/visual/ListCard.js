@@ -2,7 +2,7 @@ import React from 'react'
 
 const ListCard = (props) => {
   return (
-    <tr>
+    <tr className='list-item'>
         <td>
             <div className="thumb-lg2">
                 <img
