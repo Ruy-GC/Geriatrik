@@ -1,4 +1,6 @@
-
+:root {
+    --shadow:0 2px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
 
 
 body{
@@ -16,18 +18,19 @@ body{
 
 .CardInfo{
     overflow: hidden;
-    box-shadow: 0 2px 20px gray;
+    box-shadow: var(--shadow);
     border-radius: 10px;
     display: felx;
     flex-direction: column;
     justify-content: space-between;
     cursor:pointer;
     transition: transform 200ms ease-in;
+    
 }
 
 .CardRegistry{
     overflow: hidden;
-    box-shadow: 0 2px 20px gray;
+    box-shadow: var(--shadow);
     border-radius: 10px;
     display: felx;
     flex-direction: column;
@@ -47,24 +50,34 @@ body{
 .PatientName{
     display: flex;
     justify-content: space-around;
-    font-style: bold;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-size: 25px;
 }
 
 .PatientAge{
     display: flex;
     justify-content: center;
-    font-style: italic;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-size: 20px;
 }
 
 .PatientSex{
     display: flex;
     justify-content: center;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-size: 20px;
 }
 
 .PatientRegistryT{
     margin-right: 1rem;
     margin-left: 1rem;
     margin-bottom: 0px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-size: 18px;
 }
 
 .PatientRegistryA{
@@ -72,6 +85,9 @@ body{
     margin-top:0px;
     margin-bottom: 0.5rem;
     margin-left: 1rem;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-size: 15px;
 }
 
 

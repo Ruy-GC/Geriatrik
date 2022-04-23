@@ -24,9 +24,13 @@ const PatientInfo =(props) =>{
     <div className='CardInfo'>
         <div className='CardBody'>
             <img className='PatientImg' src={OldMan}/>
+            <br></br><br></br>
             <h1 className='PatientName'>{props.name}</h1>
+            <br></br>
             <h2 className='PatientAge'>Edad: {props.age}</h2>
+            <br></br>
             <h2 className='PatientSex'>Sexo: {props.sex}</h2>
+            <br></br><br></br>
         </div>
     </div>
     )
@@ -36,16 +40,22 @@ const PatientRegistry =(props) =>{
     return(
         <div className='CardRegistry'>
             <div className='CardBody'>
+                <br></br>
                 <h2 className='PatientRegistryT'>Contacto de emergencia:</h2>
                 <p className='PatientRegistryA'>{props.emergencyC}</p>
+                <br></br>
                 <h2 className='PatientRegistryT'>Escolaridad:</h2>
                 <p className='PatientRegistryA'>{props.school}</p>
+                <br></br>
                 <h2 className='PatientRegistryT'>Queja de memoria:</h2>
                 <p className='PatientRegistryA'>{props.memory}</p>
+                <br></br>
                 <h2 className='PatientRegistryT'>Discapacidades:</h2>
                 <p className='PatientRegistryA'>{props.difficulties}</p>
+                <br></br>
                 <h2 className='PatientRegistryT'>Hipoacusia severa:</h2>
                 <p className='PatientRegistryA'>{props.hipoacusia}</p>
+                <br></br>
                 
             </div>
         </div>
