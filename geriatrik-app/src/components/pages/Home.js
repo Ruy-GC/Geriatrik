@@ -122,7 +122,7 @@ const Home = () => {
   ]);
 
   //loadPatients(); En caso de que quieran drenar la memoria activenlo, pero se activa un listener para nuevos datos
-  // Es decir que nunca mas necesitarian 
+  // Es decir que nunca mas necesitaria refrescar
 
   var view;
   var buttonDataset;
