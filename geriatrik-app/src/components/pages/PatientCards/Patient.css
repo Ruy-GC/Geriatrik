@@ -5,7 +5,7 @@
 
 body{
     font: poppins;
-    margin: 2rem;
+    margin: 1.5%;
 }
 
 .Card{
@@ -25,12 +25,42 @@ body{
     justify-content: space-between;
     cursor:pointer;
     transition: transform 200ms ease-in;
+    position:absolute;
+    top: 3%;
+    left: 1.5%;
+    width: 13.4%;
+    height: 42.5%;
     
 }
 
 .CardRegistry{
     overflow: hidden;
     box-shadow: var(--shadow);
+    border-radius: 10px;
+    display: felx;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor:pointer;
+    transition: transform 200ms ease-in;
+    height: 115%;
+    position:absolute;
+    top: 49%;
+    left: 1.5%;
+    width: 13.4%;
+    height: 48.5%;
+    
+}
+
+.CardDetails{
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    position:absolute;
+    top: 3%;
+    left: 17%;
+    width: 81.5%;
+    height: 94.5%;
+
+
     border-radius: 10px;
     display: felx;
     flex-direction: column;
