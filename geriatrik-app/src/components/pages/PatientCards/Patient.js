@@ -2,6 +2,8 @@ import React from 'react'
 import OldMan from '../../layout/images/OldManPic.jpg'
 import './Patient.css' 
 import  TestButton  from '../../TestButton'
+import TestGraph from '../../graph/TestGraph'
+import { Bar } from "react-chartjs-2";
 
 const HomeLink = "/";
 
@@ -20,7 +22,14 @@ const Patient =() =>{
                 difficulties = "No"
                 hipoacusia = "No"/>
             <Details
-                
+                /*fecha1 = "22-09-2020"
+                fecha2 = "22-03-2021"
+                fecha3 = "22-09-2021"
+                fecha4 = "22-03-2022"
+                data1 = "28"
+                data2 = "27"
+                data3 = "27"
+                data4 = "25"*/
                 />
         </div>
     )
@@ -73,6 +82,8 @@ const Details =(props) =>{
     return(
         <div className='CardDetails'>
             <div className='CardBody'>
+                <div>
+                </div>
                 <div className = 'Botones'>
                     <TestButton
                         type = "button"
