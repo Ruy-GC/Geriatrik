@@ -7,6 +7,7 @@ import Register from "./components/auth/Register";
 import Home from "./components/pages/Home";
 import Reports from "./components/pages/Reports";
 import Navbar from "./components/Navbar";
+import Patient from "./components/pages/PatientCards/Patient";
 
 function App() {
     return (
@@ -16,7 +17,7 @@ function App() {
                     <Route exact path='/' element = {<Login/>}/>
                     <Route exact path='/home' element = {<Home/>}/>
                     <Route exact path='/Register' element = {<Register/>}/>
-                    {/* <Route exact path='/PatientCard' element = {<Patient/>}/> */}
+                    <Route exact path='/PatientCard' element = {<Patient/>}/>
                 </Routes>
             </Fragment>
         </Router>
