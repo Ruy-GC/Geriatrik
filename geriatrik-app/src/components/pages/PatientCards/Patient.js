@@ -69,7 +69,7 @@ const Patient =() =>{
     return(
     <div className='CardInfo'>
         <div className='CardBody'>
-            <img className='PatientImg' src={props.image}/>
+            <img className='PatientImg' src={props.image} alt='PatientPP'/>
             <br></br><br></br>
             <h1 className='PatientName'>{props.name}</h1>
             <br></br>
@@ -111,71 +111,71 @@ const PatientRegistry =(props) =>{
 const Details =(props) =>{
     return(
         <div className='CardDetails'>
-            <div className='CardBody'>
-                <div>
-                </div>
-                <div className = 'Botones'>
-                    <TestButton
-                        type = "button"
-                        buttonStyle = "btn--secondary--solid"
-                        buttonSize = "btn--large"
-                        link={HomeLink}>
-                        MOCA
-                    </TestButton>
-                    <br></br>
-                    <br></br>
-                    <TestButton
-                        type = "button"
-                        buttonStyle = "btn--primary--solid"
-                        buttonSize = "btn--large"
-                        link={HomeLink}>
-                        Act. Basicas
-                    </TestButton>
-                    <br></br>
-                    <br></br>
-                    <TestButton
-                        type = "button"
-                        buttonStyle = "btn--primary--solid"
-                        buttonSize = "btn--large"
-                        link={HomeLink}>
-                        Act.Instrumentales
-                    </TestButton>
-                    
-                </div>
-                <hr className='Line1'></hr>
-                <div className='central-table-view-patient'>
-              {
-                
-                <table className="styled-table-patient">
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th>Examen</th>
-                        <th>Resultados</th>
-                        <th>Fecha</th>
-                        <th>Notas</th>
-                    </tr>
-                </thead>
-                <tbody>
-                  {
-                  examenes.map((currentTest) => {
-                    return(
-                      <ListCardTest
-                        testObj={currentTest}
-                        key={currentTest.ExamenId}
-                        examen={currentTest.examen}
-                        resultados={currentTest.resultados}
-                        fecha={currentTest.resultados}
-                        notas={currentTest.notas}
-                      />
-                    );
-                  })} 
-                </tbody>
-              </table>
-              }
-            </div>                <hr className='Line2'></hr>
+            <div className='TestGraph'>
+                <TestGraph/>
             </div>
-        </div>
+            <div className = 'Botones'>
+                <TestButton
+                    type = "button"
+                    buttonStyle = "btn--secondary--solid"
+                    buttonSize = "btn--large"
+                    link={HomeLink}>
+                    MOCA
+                </TestButton>
+                <br></br>
+                <br></br>
+                <TestButton
+                    type = "button"
+                    buttonStyle = "btn--primary--solid"
+                    buttonSize = "btn--large"
+                    link={HomeLink}>
+                    Act. Basicas
+                </TestButton>
+                <br></br>
+                <br></br>
+                <TestButton
+                    type = "button"
+                    buttonStyle = "btn--primary--solid"
+                    buttonSize = "btn--large"
+                    link={HomeLink}>
+                    Act.Instrumentales
+                </TestButton>
+                
+            </div>
+            <hr className='Line1'></hr>
+            <div className='central-table-view-patient'>
+            {
+            
+            <table className="styled-table-patient">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Examen</th>
+                    <th>Resultados</th>
+                    <th>Fecha</th>
+                    <th>Notas</th>
+                </tr>
+            </thead>
+            <tbody>
+                {
+                examenes.map((currentTest) => {
+                return(
+                    <ListCardTest
+                    testObj={currentTest}
+                    key={currentTest.ExamenId}
+                    examen={currentTest.examen}
+                    resultados={currentTest.resultados}
+                    fecha={currentTest.resultados}
+                    notas={currentTest.notas}
+                    />
+                );
+                })} 
+            </tbody>
+            </table>
+            }
+        </div>                
+        <hr className='Line2'></hr>
+    </div>
     )
 }
 

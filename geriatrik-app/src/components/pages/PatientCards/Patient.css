@@ -34,6 +34,7 @@ body{
 }
 
 .CardRegistry{
+    border: 1px solid #ffffff;
     overflow: hidden;
     box-shadow: var(--shadow);
     border-radius: 10px;
@@ -52,6 +53,7 @@ body{
 }
 
 .CardDetails{
+    border: 1px solid #ffffff;
     overflow: hidden;
     box-shadow: var(--shadow);
     position:absolute;
@@ -169,21 +171,27 @@ body{
   }
 
 
-  .styled-table-patient {
-    width: 100%;
-    font-size: 0.9em;
-    font-family: sans-serif;
-    min-width: 400px;
-    overflow-x: auto;
-  }
-  
-  .styled-table-patient th,
-  .styled-table-patient td {
-      padding: 12px 15px;
-      font-size: 18px;
-  }
-  
-  .styled-table-patient tbody tr {
-    border-bottom: 1px solid #dddddd;
-  }
+.styled-table-patient {
+width: 100%;
+font-size: 0.9em;
+font-family: sans-serif;
+min-width: 400px;
+overflow-x: auto;
+}
 
+.styled-table-patient th,
+.styled-table-patient td {
+    padding: 12px 15px;
+    font-size: 18px;
+}
+
+.styled-table-patient tbody tr {
+border-bottom: 1px solid #dddddd;
+}
+
+.TestGraph {
+    border: 1px solid #ffffff;
+    height: auto;  
+    width: 400px;
+    margin: 10px;
+}
