@@ -30,7 +30,7 @@ const TestButton = ({
 
     return (
         <Link to={link}>
-            <button className ={`btn ${checkButtonStyle} ${checkButtonSize}`} onClick={onClick} type={type}>
+            <button className ={`btn ${checkButtonStyle} ${checkButtonSize}`} type={type}>
                 <BiIcons.BiNotepad style={{color: 'white', fontSize: '26px',   float: 'left', display: 'block'}}/> 
                 {children}
             </button>

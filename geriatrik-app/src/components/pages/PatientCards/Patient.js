@@ -1,11 +1,16 @@
 import React from 'react'
 import OldMan from '../../layout/images/OldManPic.jpg'
 import './Patient.css' 
+import  TestButton  from '../../TestButton'
+import  Graph  from '../../Graph'
+
+const HomeLink = "/";
 
 const Patient =() =>{
     return(
         <div className='Card'>
             <PatientInfo 
+                image = {OldMan}
                 name = "Adrian Becerra"
                 age = "89"
                 sex = "Masculino"/> 
@@ -15,6 +20,9 @@ const Patient =() =>{
                 memory = "Si"
                 difficulties = "No"
                 hipoacusia = "No"/>
+            <Details
+                
+                />
         </div>
     )
 }
@@ -23,7 +31,7 @@ const PatientInfo =(props) =>{
     return(
     <div className='CardInfo'>
         <div className='CardBody'>
-            <img className='PatientImg' src={OldMan}/>
+            <img className='PatientImg' src={props.image}/>
             <br></br><br></br>
             <h1 className='PatientName'>{props.name}</h1>
             <br></br>
@@ -57,6 +65,24 @@ const PatientRegistry =(props) =>{
                 <p className='PatientRegistryA'>{props.hipoacusia}</p>
                 <br></br>
                 
+            </div>
+        </div>
+    )
+}
+
+const Details =(props) =>{
+    return(
+        <div className='CardDetails'>
+            <div className='CardBody'>
+                <TestButton
+                    type = "button"
+                    buttonStyle = "btn--secondary--solid"
+                    buttonSize = "btn--large"
+                    link={HomeLink}
+                    className = 'BotonMoca'>
+                    MOCA
+                    
+                </TestButton>
             </div>
         </div>
     )
