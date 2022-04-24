@@ -1,7 +1,6 @@
 import React, {useState} from 'react'
 import { useNavigate  } from "react-router-dom"
 import login from '../layout/images/login.PNG'
-import AddPatientButton from './AddPatientButton'
 
 const NewPatient = () => {
     
@@ -10,7 +9,6 @@ const NewPatient = () => {
 
     //user register fields
     const [user,setUser] = useState({
-        ID: '',
         name: '',
         lastName: '',
         motherLastName: '',
@@ -24,7 +22,7 @@ const NewPatient = () => {
         profileImage: ''
     });
 
-    const {ID, name, lastName, motherLastName, birthday, gender, scholarity, disabilities, memoryComplaint, severeHearingLoss, emergencyContact, image} = user;
+    const {name, lastName, motherLastName, birthday, gender, scholarity, disabilities, memoryComplaint, severeHearingLoss, emergencyContact, image} = user;
 
     //copies user data and changes the target of the onchange
     const onChange = e => setUser({...user, [e.target.name]:e.target.value});
@@ -53,8 +51,7 @@ const NewPatient = () => {
                     <label for="fe">Fecha de Nacimiento</label>
                     <input type='date' name = 'birthday' value={birthday} onChange = {onChange} required/>
                     <input placeholder='Sexo (H/M)' type='text' name = 'gender' value={gender} onChange = {onChange} required/>
-                    <label for="escolaridad">Escolaridad</label>
-                    <input id = "escolaridad" type='checkbox' name = 'scholarity' value={scholarity} onChange = {onChange}/>
+                    <input placeholder='Escolaridad' type='checkbox' name = 'scholarity' value={scholarity} onChange = {onChange} required/>
                     <input placeholder='Discapacidades' type='text' name = 'disabilities' value={disabilities} onChange = {onChange} required/>
                     <label>Queja de memoria</label>
                     <input placeholder='Queja de memoria' type='checkbox' name = 'memoryComplaint' value={memoryComplaint} onChange = {onChange} />
