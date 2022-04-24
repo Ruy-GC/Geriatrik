@@ -7,6 +7,7 @@ import viewlist_unfilled from '../../images/viewlist_unfilled.png'
 import dataset_filled from '../../images/dataset_filled.png'
 import dataset_unfilled from '../../images/dataset_unfilled.png'
 import { IconBase } from 'react-icons'
+import AddPatientButton from '../newPatient/AddPatientButton'
 
 const Home = () => {
   const loadPatients = () => {
@@ -198,6 +199,7 @@ const Home = () => {
     <div style={{width: centeredHomeWidth}} className='centered-home'>
       <h1>Bienvenida de nuevo, Marcela</h1>
       <Navbar />
+      <AddPatientButton />
       <div className='home-bar'>
         <div className='home-view-buttons'>
           {buttonDataset}
