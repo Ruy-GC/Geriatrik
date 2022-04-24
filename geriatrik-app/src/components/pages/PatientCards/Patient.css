@@ -68,7 +68,33 @@ body{
     cursor:pointer;
     transition: transform 200ms ease-in;
 }
+.Botones{
+    position:absolute;
+    top: 20%;
+    left: 78%;
+    width: 81.5%;
+    height: 94.5%;
+}
 
+.Line1 {
+
+    position:absolute;
+    top: 40%;
+    width: 100%;
+    height: 3px;
+
+    background-color: black;
+  }
+
+.Line2 {
+
+    position:absolute;
+    top: 46%;
+    width: 100%;
+    height: 3px;
+
+    background-color: black;
+  }
 .PatientImg{
     height: 12rem;
     width: 100%;
@@ -109,6 +135,17 @@ body{
     font-weight: 600;
     font-size: 18px;
 }
+.DataLine{
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    position:absolute;
+    top: 41.5%;
+    left: 3%;
+    width: 100%;
+
+}
+
 
 .PatientRegistryA{
     font-size: 20px;

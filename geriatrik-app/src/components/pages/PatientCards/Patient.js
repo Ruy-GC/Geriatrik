@@ -81,7 +81,11 @@ const Details =(props) =>{
                         link={HomeLink}>
                         MOCA
                     </TestButton>
+                    
                 </div>
+                <hr className='Line1'></hr>
+                <pre className='DataLine'>Examen                                 Resultados                                 Fecha                                                                                                          Notas</pre>
+                <hr className='Line2'></hr>
             </div>
         </div>
     )
