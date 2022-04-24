@@ -1,13 +1,40 @@
 import React from 'react'
+import {useState} from 'react'
 import OldMan from '../../layout/images/OldManPic.jpg'
 import './Patient.css' 
 import  TestButton  from '../../TestButton'
 import TestGraph from '../../graph/TestGraph'
 import { Bar } from "react-chartjs-2";
+import ListCardTest from './ListCardTest'
 
 const HomeLink = "/";
+const examenes = ([
+    {
+      ExamenId: 1,
+      examen: "Moca",
+      resultados: "90/100",
+      fecha: "22-08-2021",
+      notas: "Sin notas",
+    },
+    {
+        ExamenId: 2,
+        examen: "Act. Basicas",
+        resultados: "90/100",
+        fecha: "22-08-2021",
+        notas: "Sin notas",
+      },
+      {
+        ExamenId: 3,
+        examen: "Act. Instrumentales",
+        resultados: "90/100",
+        fecha: "22-08-2021",
+        notas: "Sin notas",
+      },
+  ]);
 
 const Patient =() =>{
+    
+      
     return(
         <div className='Card'>
             <PatientInfo 
@@ -32,10 +59,13 @@ const Patient =() =>{
                 data4 = "25"*/
                 />
         </div>
+        
     )
 }
 
-const PatientInfo =(props) =>{
+
+
+  const PatientInfo =(props) =>{
     return(
     <div className='CardInfo'>
         <div className='CardBody'>
@@ -92,11 +122,58 @@ const Details =(props) =>{
                         link={HomeLink}>
                         MOCA
                     </TestButton>
+                    <br></br>
+                    <br></br>
+                    <TestButton
+                        type = "button"
+                        buttonStyle = "btn--primary--solid"
+                        buttonSize = "btn--large"
+                        link={HomeLink}>
+                        Act. Basicas
+                    </TestButton>
+                    <br></br>
+                    <br></br>
+                    <TestButton
+                        type = "button"
+                        buttonStyle = "btn--primary--solid"
+                        buttonSize = "btn--large"
+                        link={HomeLink}>
+                        Act.Instrumentales
+                    </TestButton>
                     
                 </div>
                 <hr className='Line1'></hr>
-                <pre className='DataLine'>Examen                                 Resultados                                 Fecha                                                                                                          Notas</pre>
-                <hr className='Line2'></hr>
+                <div className='central-table-view-patient'>
+              {
+                
+                <table className="styled-table-patient">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Examen</th>
+                        <th>Resultados</th>
+                        <th>Fecha</th>
+                        <th>Notas</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  {
+                  examenes.map((currentTest) => {
+                    return(
+                      <ListCardTest
+                        testObj={currentTest}
+                        key={currentTest.ExamenId}
+                        examen={currentTest.examen}
+                        resultados={currentTest.resultados}
+                        fecha={currentTest.resultados}
+                        notas={currentTest.notas}
+                      />
+                    );
+                  })} 
+                </tbody>
+              </table>
+              }
+            </div>                <hr className='Line2'></hr>
             </div>
         </div>
     )
@@ -104,4 +181,6 @@ const Details =(props) =>{
 
 
 export default Patient
+
+
 
