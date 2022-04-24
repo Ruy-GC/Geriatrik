@@ -12,16 +12,18 @@ const NewPatient = () => {
     const [user,setUser] = useState({
         name: '',
         firstName: '',
+        birthday: '',
+        gender: '',
         age: '',
         emergencyContact: '',
         scholarity: '',
         memoryComplaint: '',
         disabilities: '',
         severeHearingLoss: '',
-        dateLastTest: ''  
+        image: ''
     });
 
-    const {name,firstName,age,emergencyContact, scholarity, memoryComplaint, disabilities, severeHearingLoss,dateLastTest} = user;
+    const {name,firstName, birthday, gender, age, emergencyContact, scholarity, memoryComplaint, disabilities, severeHearingLoss, image} = user;
 
     //copies user data and changes the target of the onchange
     const onChange = e => setUser({...user, [e.target.name]:e.target.value});
@@ -29,7 +31,7 @@ const NewPatient = () => {
     const onSubmit = e => {
         e.preventDefault();
 
-        if(name === '' || firstName === '' || age === '' || emergencyContact === '' || scholarity === '' || memoryComplaint === '' || disabilities === '' || severeHearingLoss === '' || dateLastTest === ''){
+        if(name === '' || firstName === '' || gender === '' || age === '' || emergencyContact === '' || scholarity === '' || memoryComplaint === '' || disabilities === '' || severeHearingLoss === '' || birthday === ''){
             //missing info
         }else{
             //register
@@ -44,15 +46,16 @@ const NewPatient = () => {
                 <h2 className='auth-header'>Add New Patient</h2>
                 <form onSubmit={onSubmit}>
                     <input placeholder='Nombre' type='text' name = 'name' value={name} onChange = {onChange} required/>
-                    <input placeholder='Primer Apellido' type='text' name = 'firstName' value={firstName} onChange = {onChange} required/>
-                    <input placeholder='Edad' type='text' name = 'age' value={age} onChange = {onChange} required/>
-                    <input placeholder='Contacto de Emergencia' type='text' name = 'emergencyContact' value={emergencyContact} onChange = {onChange} required/>
-                    <input placeholder='Escolaridad' type='text' name = 'scholarity' value={scholarity} onChange = {onChange} required/>
+                    <input placeholder='Apellido' type='text' name = 'firstName' value={firstName} onChange = {onChange} required/>
+                    <input placeholder='Fecha Nacimiento' type='date' name = 'birthday' value={birthday} onChange = {onChange} required/>
+                    <input placeholder='Sexo' type='text' name = 'gender' value={gender} onChange = {onChange} required/>
+                    <input placeholder='Edad' type='number' name = 'age' value={age} onChange = {onChange} required/>
+                    <input placeholder='Contacto de Emergencia' type='number' name = 'emergencyContact' value={emergencyContact} onChange = {onChange} required/>
+                    <input id = "escolaridad" type='checkbox' name = 'scholarity' value={scholarity} onChange = {onChange}required/>
                     <input placeholder='Queja de memoria' type='text' name = 'memoryComplaint' value={memoryComplaint} onChange = {onChange} required/>
                     <input placeholder='Discapacidades' type='text' name = 'disabilities' value={disabilities} onChange = {onChange} required/>
-                    <input placeholder='Hipoacusia severa' type='text' name = 'severeHearingLoss' value={severeHearingLoss} onChange = {onChange} required/>
-                    <input placeholder='Fecha de último test' type='date' name = 'dateLastTest' value={dateLastTest} onChange = {onChange} required/>
-
+                    <input placeholder='Hipoacusia severa' type='checkbox' name = 'severeHearingLoss' value={severeHearingLoss} onChange = {onChange} required/>
+                    <input placeholder='Imagen de Perfil' type='image' name = 'image' value={image} onChange = {onChange}/>
                     <input type="submit" value = "Agregar Paciente"/>
                     <button className='btn-back' onClick={() => navigate('/home')}> Atrás</button>
                     
@@ -67,7 +70,6 @@ const NewPatient = () => {
                     />
                 </center>
             </div>
-            <AddPatientButton/>
         </div>
     )
 }
