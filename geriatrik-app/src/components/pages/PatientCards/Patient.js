@@ -2,7 +2,6 @@ import React from 'react'
 import OldMan from '../../layout/images/OldManPic.jpg'
 import './Patient.css' 
 import  TestButton  from '../../TestButton'
-import  Graph  from '../../Graph'
 
 const HomeLink = "/";
 
@@ -74,15 +73,15 @@ const Details =(props) =>{
     return(
         <div className='CardDetails'>
             <div className='CardBody'>
-                <TestButton
-                    type = "button"
-                    buttonStyle = "btn--secondary--solid"
-                    buttonSize = "btn--large"
-                    link={HomeLink}
-                    className = 'BotonMoca'>
-                    MOCA
-                    
-                </TestButton>
+                <div className = 'Botones'>
+                    <TestButton
+                        type = "button"
+                        buttonStyle = "btn--secondary--solid"
+                        buttonSize = "btn--large"
+                        link={HomeLink}>
+                        MOCA
+                    </TestButton>
+                </div>
             </div>
         </div>
     )
