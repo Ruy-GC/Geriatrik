@@ -70,7 +70,7 @@ body{
 }
 .Botones{
     position:absolute;
-    top: 20%;
+    top: 13%;
     left: 78%;
     width: 81.5%;
     height: 94.5%;
@@ -89,7 +89,7 @@ body{
 .Line2 {
 
     position:absolute;
-    top: 46%;
+    top: 44%;
     width: 100%;
     height: 3px;
 
@@ -135,16 +135,7 @@ body{
     font-weight: 600;
     font-size: 18px;
 }
-.DataLine{
-    font-family: "Poppins", sans-serif;
-    font-weight: 600;
-    font-size: 18px;
-    position:absolute;
-    top: 41.5%;
-    left: 3%;
-    width: 100%;
 
-}
 
 
 .PatientRegistryA{
@@ -157,4 +148,43 @@ body{
     font-size: 15px;
 }
 
+.central-table-view-patient {
+    margin: auto;
+    padding: 10px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    position: absolute;
+    top: 38.2%;
+    right: 10%;
+  
+  }
+
+  
+.list-item-patient:hover {
+    transform: scale(1.01);
+    transition: 0.2s;
+  }
+
+
+  .styled-table-patient {
+    width: 100%;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+    overflow-x: auto;
+  }
+  
+  .styled-table-patient th,
+  .styled-table-patient td {
+      padding: 12px 15px;
+      font-size: 18px;
+  }
+  
+  .styled-table-patient tbody tr {
+    border-bottom: 1px solid #dddddd;
+  }
 

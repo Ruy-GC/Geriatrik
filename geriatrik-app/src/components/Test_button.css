@@ -1,6 +1,6 @@
 :root {
     --primary: #D93232;
-    --primary--hover: #b92121;
+    --primary--hover: #9b2626;
     --secondary: #10BF2C;
     --secondary--hover:rgb(24, 136, 43);
     --white: #fff;
@@ -26,7 +26,7 @@
     background-color: var(--primary);
     color: var(--white);
     border: none;
-    float: left;
+    
     
     border-radius: 50px;
 }
