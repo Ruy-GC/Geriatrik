@@ -61,7 +61,7 @@ const Login = () => {
                         <i className="bi bi-eye" id="togglePassword" onClick={showPassword}/>
                         <input id = "password" placeholder='Contraseña' type='password' name = 'password' value={password} onChange = {onChange} required/>
                     </div>
-                    <p style={{margin: '15px', cursor: 'pointer',textDecoration: 'underline'}} onClick = {() => navigate('/register', { replace: true })}>¿No tienes cuenta? Registrate</p>
+                    <p style={{margin: '15px', cursor: 'pointer',textDecoration: 'underline'}} onClick = {() => navigate('/register')}>¿No tienes cuenta? Registrate</p>
                     <input type="submit" value = "Iniciar Sesión"/>
                 </form>
             </div>

@@ -13,6 +13,7 @@ const SIZES = ["btn--medium", "btn--large"]
 const TestButton = ({
     children,
     type,
+    onClick,
     buttonStyle,
     buttonSize,
     link,
