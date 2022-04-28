@@ -1,0 +1,223 @@
+/* ADD PATIENT BUTTON */
+  .addPatientButton{
+    position: absolute;
+    cursor: pointer;
+    width: 77px;
+    height: 75px;
+    bottom:0.5%;
+    right:0.5%;
+  
+    background: #316CB0;
+  
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;  
+    border-radius: 50px;
+    
+  }
+  .addPatientButton:after {
+    content: '';
+    position: absolute;
+    transform: translate(-50%, -50%);
+    height: 4px;
+    width: 50%;
+    background: #fff;
+    top: 50%;
+    left: 50%;
+  }
+  
+  .addPatientButton:after {
+    content: '';
+    position: absolute;
+    transform: translate(-50%, -50%);
+    height: 4px;
+    width: 50%;
+    background: #fff;
+    top: 50%;
+    left: 50%;
+  }
+  
+  .addPatientButton:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    height: 50%;
+    width: 4px;
+  }
+  
+  .addPatientButton:hover:before,
+  .addPatientButton:hover:after {
+    background: #fff;
+    transition: 0.2s;
+  }
+  
+  .addPatientButton:hover {
+    background-color: #28588f;
+    transition: 0.2s;
+  }
+  
+  /* END OF PATIENT BUTTON */
+  
+  
+  /* ADD PATIENT MODAL */
+  .modal-container{
+    opacity: 0;
+    visibility: hidden;
+    position: fixed;
+    z-index: 1000;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .modal{
+    width: 43%;
+    height: 78%;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    position:relative;
+    transition: transform 1s;
+    transform: translateY(0%);
+    border-radius: 3%;
+    overflow: hidden;
+    overflow-y: scroll;
+  }
+  .close{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    color: black;
+    line-height: 25px;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: large;
+
+  }
+  .modal-close{
+      transform: translateY(-200%);
+  }
+
+  /* END OF  MODAL */
+
+  /* -- TOGGLE CHECKBOX -- */
+
+  .toggle-div {
+    width: fit-content;
+    height: 50px;
+    margin-top: 20px;
+    margin-left: 15px;
+    font: bold;
+    background-color: #EFF0F7;
+    border-radius: 5%;
+  }
+
+  .toggle-label{
+    margin-right: 70px;
+    margin-left: 15px;
+    font:xx-large;
+  }
+
+  .toggle {
+    --width: 70px;
+    --height: calc(var(--width) / 3);
+
+    position: relative;
+    display: inline-block;
+    width: var(--width);
+    height: var(--height);
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+    border-radius: var(--height);
+    cursor: pointer;
+  }
+
+  .toggle input {
+    display: none;
+  }
+
+  .toggle .slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: var(--height);
+    background-color: #ccc;
+    transition: all 0.4s ease-in-out;
+  }
+
+  .toggle .slider::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: calc(var(--height));
+    height: calc(var(--height));
+    border-radius: calc(var(--height) / 2);
+    background-color: #fff;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+    transition: all 0.4s ease-in-out;
+  }
+
+  .toggle input:checked+.slider {
+    background-color: #28588f;
+  }
+
+  .toggle input:checked+.slider::before {
+    transform: translateX(calc(var(--width) - var(--height)));
+  }
+
+  .toggle .labels {
+    position: absolute;
+    top: 8px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    font-size: 12px;
+    font-family: sans-serif;
+    transition: all 0.4s ease-in-out;
+    overflow: hidden;
+  }
+
+  .toggle .labels::after {
+    content: attr(data-off);
+    position: absolute;
+    right: 5px;
+    color: #4d4d4d;
+    opacity: 1;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+    transition: all 0.4s ease-in-out;
+  }
+
+  .toggle .labels::before {
+    content: attr(data-on);
+    position: absolute;
+    left: calc(var(--height) - var(--width) + 2px);
+    color: #ffffff;
+    opacity: 0;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.4);
+    transition: all 0.4s ease-in-out;
+  }
+
+  .toggle input:checked~.labels::after {
+    opacity: 0;
+    transform: translateX(calc(var(--width) - var(--height)));
+  }
+
+  .toggle input:checked~.labels::before {
+    opacity: 1;
+    transform: translateX(calc(var(--width) - var(--height)));
+  }
+
+
+
+  /* END OF TOGGLE CHECKBOX */
