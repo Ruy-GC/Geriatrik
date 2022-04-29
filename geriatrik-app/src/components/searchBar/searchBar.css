@@ -8,7 +8,7 @@
     width: 1px;
 }
 
-input[type=text], select {
+input[type=search]{
     width: 200%;
     padding: 12px 20px;
     margin: 8px 0;

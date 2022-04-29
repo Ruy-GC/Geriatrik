@@ -1,6 +1,4 @@
 import React, {useState} from 'react'
-import TextField from "@mui/material/TextField";
-import ListSearch from './ListSearch'
 import "./searchBar.css";
 
 const SearchBar = ({ searchQuery, setSearchQuery }) => (
@@ -11,7 +9,7 @@ const SearchBar = ({ searchQuery, setSearchQuery }) => (
       <input
           value={searchQuery}
           onInput={e => setSearchQuery(e.target.value)}
-          type="text"
+          type="search"
           id="header-search"
           placeholder="Search Patients"
           name="s"
