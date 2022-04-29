@@ -8,6 +8,7 @@ import dataset_filled from '../../images/dataset_filled.png'
 import dataset_unfilled from '../../images/dataset_unfilled.png'
 import { useNavigate  } from "react-router-dom"
 import { IconBase } from 'react-icons'
+import SearchBar from "../searchBar/searchBar";
 
 const Home = () => {
   const navigate = useNavigate ();
@@ -26,6 +27,23 @@ const Home = () => {
     //allow to naviigate through the routes
     navigate('/PatientCard/'+ currentPatient.pacienteID)
   }
+  const filterPosts = (posts, query) => {
+    if (!query) {
+        return posts;
+    }
+
+    return posts.filter((post) => {
+        const postName = post.nombre.toLowerCase();
+        return postName.includes(query);
+    });
+  };
+  
+  const { search } = window.location;
+  const query = new URLSearchParams(search).get('s');
+  const [searchQuery, setSearchQuery] = useState(query || '');
+  const filteredPosts = filterPosts(datos, searchQuery);
+  
+  
 
   const [tipoVista, setVista] = useState("Grid");
   //loadPatients(); En caso de que quieran drenar la memoria activenlo, pero se activa un listener para nuevos datos
@@ -39,9 +57,10 @@ const Home = () => {
   if (tipoVista==="Grid") {
     view =  
           <div className='view-wrapper'>
+            
             <div className='central-bubble-view'>
               {!datos ? "loading..." : 
-              datos.map((currentPatient) => {
+              filteredPosts.map((currentPatient) => {
                 return(
                   <div onClick={() => OpenPatientCard(currentPatient)} style={{cursor: 'pointer'}}>
                     <BubbleCard
@@ -83,7 +102,7 @@ const Home = () => {
                 </thead>
                 <tbody>
                   {
-                  datos.map((currentPatient) => {
+                  filteredPosts.map((currentPatient) => {
                     return(
                       <tr className='list-item' onClick={() => OpenPatientCard(currentPatient)} style={{cursor: 'pointer'}}>
                         <ListCard
@@ -110,6 +129,12 @@ const Home = () => {
       <h1>Bienvenid@ de nuevo, {localStorage.getItem('name')}</h1>
       <Navbar />
       <div className='home-bar'>
+        <div className='search'>
+        <SearchBar 
+              searchQuery={searchQuery}
+              setSearchQuery={setSearchQuery}
+            />
+        </div>
         <div className='home-view-buttons'>
           {buttonDataset}
           {buttonList}
