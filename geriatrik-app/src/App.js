@@ -17,7 +17,7 @@ function App() {
                     <Route exact path='/' element = {<Login/>}/>
                     <Route exact path='/home' element = {<Home/>}/>
                     <Route exact path='/Register' element = {<Register/>}/>
-                    <Route exact path='/PatientCard' element = {<Patient/>}/>
+                    <Route exact path='/PatientCard/:id' element = {<Patient/>}/>
                 </Routes>
             </Fragment>
         </Router>
