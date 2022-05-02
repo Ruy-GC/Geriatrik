@@ -15,7 +15,6 @@ const customStyles = {
 const ListCardTest = (props) => {
   let subtitle;
   const [modalIsOpen, setIsOpen] = React.useState(false);
-  const [showModal, setShowModal] = useState(false);
 
   function openModal() {
     setIsOpen(true);
@@ -33,8 +32,8 @@ const ListCardTest = (props) => {
   return (
     <tr className="list-item-patient">
       <td></td>
-      <td>{props.testObj.examen}</td>
-      <td onClick={openModal}>{props.testObj.resultados}</td>
+      <td>{props.testObj.tipo}</td>
+      <td onClick={openModal}>{props.testObj.puntos} /40</td>
       <Modal
         isOpen={modalIsOpen}
         onAfterOpen={afterOpenModal}
@@ -44,14 +43,14 @@ const ListCardTest = (props) => {
       >
         <h2 ref={(_subtitle) => (subtitle = _subtitle)}>Puntajes:</h2>
         <br></br>
-        <div>Visoespacial: 3/5 </div>
-        <div>Denominación: 3/5 </div>
-        <div>Memoria: 3/5 </div>
-        <div>Atención: 3/5 </div>
-        <div>Lenguaje: 3/5 </div>
-        <div>Abstracción: 3/5 </div>
-        <div>Recuerdo Diferido: 3/5 </div>
-        <div>Orientación: 3/5 </div>
+        <div>Visoespacial: {props.respuestasJSON.resultados.visoespacial}/5</div>
+        <div>Denominación: {props.respuestasJSON.resultados.denominacion}/5</div>
+        <div>Memoria: {props.respuestasJSON.resultados.memoria}/5</div>
+        <div>Atención: {props.respuestasJSON.resultados.atencion}/5</div>
+        <div>Lenguaje: {props.respuestasJSON.resultados.lenguaje}/5</div>
+        <div>Abstracción: {props.respuestasJSON.resultados.abstraccion}/5</div>
+        <div>Recuerdo Diferido: {props.respuestasJSON.resultados.recuerdo_diferido}/5</div>
+        <div>Orientación: {props.respuestasJSON.resultados.orientacion}/5</div>
         <br></br>
         <button onClick={closeModal}>CLOSE</button>
 
