@@ -61,6 +61,11 @@
   
   
   /* ADD PATIENT MODAL */
+  .header{
+    font-size: 40px;
+    margin-left: 15px;
+    margin-top: 15px;
+  }
   .modal-container{
     opacity: 0;
     visibility: hidden;
@@ -81,13 +86,13 @@
     background: #fff;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
     position:relative;
     transition: transform 1s;
     transform: translateY(0%);
     border-radius: 3%;
     overflow: hidden;
     overflow-y: scroll;
+    
   }
   .close{
     position: absolute;

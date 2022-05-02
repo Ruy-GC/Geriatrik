@@ -55,17 +55,9 @@ const AddPatientButton = () => {
             modalContainer.style.visibility = "hidden";
         }, 600)//vamos a darle 1s para ejecutar la función
     }
-
-    const addToDB = () => {
-        //Conexión con Base de datos 
-        var sql = `INSERT INTO patient (name, lastName, motherLastName, birthday, gender, scholarity, disabilities, memoryComplaint, severeHearingLoss, emergencyContact, image) VALUES ("${name} ", "${lastName}", "${motherLastName}", "${birthday}", "${gender}", "${scholarity}", "${disabilities}", "${memoryComplaint}", "${severeHearingLoss}", "${emergencyContact}", "${image}")`;
-        con.query(sql, function (err, result) {
-            if (err) throw err;
-            console.log("Result: " + result);
-        });
-    }
     
     window.addEventListener("click", function(e){
+        console.log(e.target);
         if(e.target == modalContainer){
             close();
         }
@@ -78,7 +70,7 @@ const AddPatientButton = () => {
                 <div class = "modal modal-close">
                     <a class = "close" onClick={close}>X</a>
                     <div class = "modal-text">
-                        <h2 className='auth-header'>Add New Patient</h2>
+                        <h2 className='header'>Add New Patient</h2>
                         <form onSubmit={onSubmit}>
                             <div className='grid-2'>
                                 <div>
