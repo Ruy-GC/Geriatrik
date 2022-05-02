@@ -6,17 +6,28 @@ import viewlist_filled from '../../images/viewlist_filled.png'
 import viewlist_unfilled from '../../images/viewlist_unfilled.png'
 import dataset_filled from '../../images/dataset_filled.png'
 import dataset_unfilled from '../../images/dataset_unfilled.png'
+import { useNavigate  } from "react-router-dom"
 import { IconBase } from 'react-icons'
 
 const Home = () => {
+  const navigate = useNavigate ();
+
+  const loadPatients = () => {
+    fetch("/patients").then((res) => res.json()).then((data) => setData(data.message));
+  }
   const [datos, setData] = React.useState(null);
   React.useEffect(() => {
     fetch("/patients")
       .then((res) => res.json())
       .then((data) => setData(data.message));
   }, []);
-  const [tipoVista, setVista] = useState("Grid");
 
+  const OpenPatientCard = (currentPatient) => {
+    //allow to naviigate through the routes
+    navigate('/PatientCard/'+ currentPatient.pacienteID)
+  }
+
+  const [tipoVista, setVista] = useState("Grid");
   //loadPatients(); En caso de que quieran drenar la memoria activenlo, pero se activa un listener para nuevos datos
   // Es decir que nunca mas necesitaria refrescar
 
@@ -32,13 +43,15 @@ const Home = () => {
               {!datos ? "loading..." : 
               datos.map((currentPatient) => {
                 return(
-                  <BubbleCard
-                    patientObj={currentPatient}
-                    key={currentPatient.pacienteID}
-                    name={currentPatient.nombre}
-                    img={currentPatient.imagenPerfil}
-                    role={currentPatient.escolaridad}
-                  />
+                  <div onClick={() => OpenPatientCard(currentPatient)} style={{cursor: 'pointer'}}>
+                    <BubbleCard
+                      patientObj={currentPatient}
+                      key={currentPatient.pacienteID}
+                      name={currentPatient.nombre}
+                      img={currentPatient.imagenPerfil}
+                      role={currentPatient.escolaridad}
+                    />
+                  </div>
                 );
               })}
             </div>
@@ -72,13 +85,15 @@ const Home = () => {
                   {
                   datos.map((currentPatient) => {
                     return(
-                      <ListCard
-                        patientObj={currentPatient}
-                        key={currentPatient.pacienteID}
-                        name={currentPatient.nombre}
-                        img={currentPatient.imagenPerfil}
-                        role={currentPatient.escolaridad}
-                      />
+                      <tr className='list-item' onClick={() => OpenPatientCard(currentPatient)} style={{cursor: 'pointer'}}>
+                        <ListCard
+                          patientObj={currentPatient}
+                          key={currentPatient.pacienteID}
+                          name={currentPatient.nombre}
+                          img={currentPatient.imagenPerfil}
+                          role={currentPatient.escolaridad}
+                        />
+                      </tr>
                     );
                   })} 
                 </tbody>
