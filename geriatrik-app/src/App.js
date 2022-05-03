@@ -8,12 +8,14 @@ import Home from "./components/pages/Home";
 import Reports from "./components/pages/Reports";
 import Navbar from "./components/Navbar";
 import Patient from "./components/pages/PatientCards/Patient";
+import Moca from "./components/pages/MocaPage/Moca";
 
 function App() {
     return (
         <Router>
             <Fragment>
                 <Routes>
+                    <Route exact path='/moca' element = {<Moca/>}/>
                     <Route exact path='/' element = {<Login/>}/>
                     <Route exact path='/home' element = {<Home/>}/>
                     <Route exact path='/Register' element = {<Register/>}/>
