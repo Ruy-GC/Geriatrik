@@ -193,7 +193,7 @@ const Details =(props) =>{
                 </tr>
             </thead>
             <tbody>
-                {
+                {/*
                 examenes.map((currentTest) => {
                 return(
                     <ListCardTest
@@ -205,7 +205,7 @@ const Details =(props) =>{
                         notas={currentTest.notas}
                     />
                 );
-                })} 
+                })*/} 
             </tbody>
             </table>
             }
