@@ -107,7 +107,7 @@ const Home = () => {
   }
   return (
     <div style={{width: centeredHomeWidth}} className='centered-home'>
-      <h1>Bienvenida de nuevo, Marcela</h1>
+      <h1>Bienvenid@ de nuevo, {localStorage.getItem('name')}</h1>
       <Navbar />
       <div className='home-bar'>
         <div className='home-view-buttons'>
