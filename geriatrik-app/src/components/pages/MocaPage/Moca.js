@@ -23,6 +23,12 @@ function Moca() {
   const [progression, setProgression] = useState(0);
   const [mocaResults, setMocaResults] = useState("");
   const [redirect, setRedirect] = useState(false);
+  const [data, setData] = useState(
+    {
+      pacienteId:1,
+      empleadoId:1
+    }
+  );
 
   useEffect(function(){
     unityContext.on("progress", handleOnUnityProgress);
@@ -45,7 +51,31 @@ function Moca() {
   function handleMocaFinish(results){
     setMocaResults(results);
     console.log(results);
-    setRedirect(true);
+    saveResults(results).then(() =>{setRedirect(true);});
+  }
+
+  async function saveResults(results){
+    let mocaRes;
+
+    try{
+      mocaRes = JSON.parse(results);
+    } catch(e){
+      console.log("ERROR: \n" + results);
+    }
+
+    let respuesta = data;
+    respuesta["tipoTamizaje"] = 0;
+    respuesta["fecha"] = new Date().toISOString().slice(0, 10);
+    respuesta["puntos"] = mocaRes.resultados.total;
+    respuesta["respuestasJSON"] = results.replace(/(\r\n|\n|\r)/gm, "");
+
+    fetch("/moca", {
+      method: 'POST',
+      headers:{
+        'Content-type': 'application/json; charset=UTF-8'
+      },
+      body: JSON.stringify(respuesta)
+    });
   }
 
   function handleOnClickUnMountUnity() {
