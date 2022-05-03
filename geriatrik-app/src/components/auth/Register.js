@@ -3,11 +3,14 @@ import { useNavigate  } from "react-router-dom"
 import login from '../layout/images/login.PNG'
 import './auth.css'
 import axios from 'axios';
+import { useAlert } from 'react-alert'
 
 const Register = props => {
     localStorage.clear();
 
-    //allow to naviigate through the routes
+    const alert = useAlert()
+
+    //allow to navigate through the routes
     const navigate = useNavigate ();
 
     //user register fields
@@ -53,14 +56,13 @@ const Register = props => {
             const res = await axios.post('/register',user,config);
             setAuth({token: res.data.token});
 
-            //console.log(res.data);
             localStorage.setItem('id',res.data.empleadoID);
             localStorage.setItem('name',res.data.name);
             localStorage.setItem('token',res.data.token);
-            //console.log(authState);
+            alert.success('Bienvenid@ ' + res.data.name);
 
         } catch (error) {
-            console.log(error.response.data.msg);
+            alert.error(error.response.data.msg);
         }
     }
 

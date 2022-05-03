@@ -3,9 +3,11 @@ import { useNavigate  } from "react-router-dom"
 import login from '../layout/images/login.PNG'
 import './auth.css'
 import axios from 'axios';
+import { useAlert } from 'react-alert'
 
 const Login = () => {
     localStorage.clear();
+    const alert = useAlert()
 
     const navigate = useNavigate();
 
@@ -40,15 +42,13 @@ const Login = () => {
             const res = await axios.post('/login',user,config);
             setAuth({token: res.data.token});
 
-            //console.log(res.data);
             localStorage.setItem('id',res.data.empleadoID);
             localStorage.setItem('name',res.data.name);
             localStorage.setItem('token',res.data.token);
-            //console.log(authState);
-
+            alert.success('Bienvenid@ ' + res.data.name);
 
         } catch (error) {
-            console.log(error.response.data.msg);
+            alert.error(error.response.data.msg);
         }
     }
 
