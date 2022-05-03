@@ -7,8 +7,8 @@ const AddPatientButton = () => {
     const navigate = useNavigate ();
     /*  ---  MODAL FORM --- */
     
-    //user register fields
-    const [user,setUser] = useState({
+    //patient register fields
+    const [patient,setPatient] = useState({
         name: '',
         lastName: '',
         motherLastName: '',
@@ -22,10 +22,10 @@ const AddPatientButton = () => {
         profileImage: ''
     });
 
-    const {name, lastName, motherLastName, birthday, gender, scholarity, disabilities, memoryComplaint, severeHearingLoss, emergencyContact, image} = user;
+    const {name, lastName, motherLastName, birthday, gender, scholarity, disabilities, memoryComplaint, severeHearingLoss, emergencyContact, image} = patient;
 
-    //copies user data and changes the target of the onchange
-    const onChange = e => setUser({...user, [e.target.name]:e.target.value});
+    //copies patient data and changes the target of the onchange
+    const onChange = e => setPatient({...patient, [e.target.name]:e.target.value});
 
     const onSubmit = e => {
         e.preventDefault();
@@ -58,10 +58,15 @@ const AddPatientButton = () => {
     
     window.addEventListener("click", function(e){
         console.log(e.target);
-        if(e.target == modalContainer){
+        if(e.target === modalContainer){
             close();
         }
     })
+
+    const addToDB = (req, res) => {
+        fetch("/addPatient", {method: "POST"})
+            .then(console.log("Data inserted to DB"))
+    }
 
     return(
         <section>
