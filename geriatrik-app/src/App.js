@@ -15,12 +15,11 @@ function App() {
         <Router>
             <Fragment>
                 <Routes>
+                    <Route exact path='/moca' element = {<Moca/>}/>
                     <Route exact path='/' element = {<Login/>}/>
                     <Route exact path='/home' element = {<Home/>}/>
                     <Route exact path='/Register' element = {<Register/>}/>
                     <Route exact path='/PatientCard/:id' element = {<Patient/>}/>
-                    
-                    <Route exact path='/moca' element = {<Moca/>}/>
                 </Routes>
             </Fragment>
         </Router>
