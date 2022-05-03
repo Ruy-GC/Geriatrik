@@ -8,9 +8,10 @@ import { Bar } from "react-chartjs-2";
 import ListCardTest from "./ListCardTest";
 import { useParams } from "react-router-dom";
 
-const HomeLink = "/";
+const HomeLink = "/moca/";
 
 const Details = (props) => {
+  const { id } = useParams(); // pacienteId
   const [datos, setData] = React.useState(null);
   let valuesArray;
 
@@ -39,6 +40,11 @@ const Details = (props) => {
   //   })
   // }
 
+  function getMocaLink(){
+    return `/moca/${1}/${id}`
+  }
+  //localStorage.getItem("id")
+
   return (
     <div className="CardDetails">
       <div className="TestGraph">
@@ -49,7 +55,7 @@ const Details = (props) => {
           type="button"
           buttonStyle="btn--secondary--solid"
           buttonSize="btn--large"
-          link={HomeLink}
+          link={getMocaLink()}
         >
           MOCA
         </TestButton>

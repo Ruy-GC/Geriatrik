@@ -2,16 +2,16 @@ import './Moca.css';
 
 import Unity, {UnityContext} from 'react-unity-webgl';
 import { Fragment, useEffect, useState } from 'react';
-import { Navigate } from "react-router-dom";
+import { Navigate, useParams } from "react-router-dom";
 
 const unityContext = new UnityContext({
   productName: "Geriatrik",
   companyName: "TEC",
-  loaderUrl: "unitybuild/2020.1/testBuild.loader.js",
-  dataUrl: "unitybuild/2020.1/testBuild.data",
-  frameworkUrl: "unitybuild/2020.1/testBuild.framework.js",
-  codeUrl: "unitybuild/2020.1/testBuild.wasm",
-  streamingAssetsUrl: "unitybuild/2020.1/streamingassets",
+  loaderUrl: "../../../unitybuild/2020.1/testBuild.loader.js",
+  dataUrl: "../../../unitybuild/2020.1/testBuild.data",
+  frameworkUrl: "../../../unitybuild/2020.1/testBuild.framework.js",
+  codeUrl: "../../../unitybuild/2020.1/testBuild.wasm",
+  streamingAssetsUrl: "../../../unitybuild/2020.1/streamingassets",
   webglContextAttributes:{
     preserveDrawingBuffer: true,
   }
@@ -23,12 +23,7 @@ function Moca() {
   const [progression, setProgression] = useState(0);
   const [mocaResults, setMocaResults] = useState("");
   const [redirect, setRedirect] = useState(false);
-  const [data, setData] = useState(
-    {
-      pacienteId:1,
-      empleadoId:1
-    }
-  );
+  const {idEmpleado, idPaciente} = useParams();
 
   useEffect(function(){
     unityContext.on("progress", handleOnUnityProgress);
@@ -63,7 +58,9 @@ function Moca() {
       console.log("ERROR: \n" + results);
     }
 
-    let respuesta = data;
+    let respuesta = {};
+    respuesta["empleadoId"] = idEmpleado;
+    respuesta["pacienteId"] = idPaciente;
     respuesta["tipoTamizaje"] = 0;
     respuesta["fecha"] = new Date().toISOString().slice(0, 10);
     respuesta["puntos"] = mocaRes.resultados.total;
@@ -91,10 +88,12 @@ function Moca() {
   }
 
   if(redirect === true){
-    return <Navigate to="/patientCard" replace={true}/>
+    return <Navigate to={"/patientCard/" + idPaciente} replace={true}/>
   }
 
   return(
+    <div>
+      <h1>Empleado = {idEmpleado}, Paciente = {idPaciente}</h1>
     <Fragment>
     <div className='wrapper'>
       {isUnityMounted === true && (
@@ -116,6 +115,7 @@ function Moca() {
       )}
     </div>
   </Fragment>
+  </div>
   );
 }
 
