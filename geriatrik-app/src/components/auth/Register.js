@@ -1,10 +1,12 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import { useNavigate  } from "react-router-dom"
 import login from '../layout/images/login.PNG'
 import './auth.css'
+import axios from 'axios';
 
 const Register = props => {
-    
+    localStorage.clear();
+
     //allow to naviigate through the routes
     const navigate = useNavigate ();
 
@@ -14,31 +16,70 @@ const Register = props => {
         lastnameP: '',
         lastnameM: '',
         date: '',
-        type: '',
-        sex: '',
+        type: 1,
+        sex: 'Masculino',
         cedula: '',
         email: '',
         password: '',
-        password2: ''
+        password2: '',
+        pfp: ''
     });
 
-    const {name,lastnameP,lastnameM,date,cedula,email,password,password2} = user;
+    const [authState,setAuth] = useState({
+        token: ''
+    });
+
+    useEffect(() => {
+        if(authState.token !== ''){
+            navigate('/home');
+        }
+        //eslint-disable-next-line
+    },[authState.token]);
+
+    const {name,lastnameP,lastnameM,date,cedula,email,password,password2,pfp} = user;
 
     //copies user data and changes the target of the onchange
     const onChange = e => setUser({...user, [e.target.name]:e.target.value});
+
+    const registerUser = async() => {
+        const config = {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }
+        console.log(user);
+
+        try {
+            const res = await axios.post('/register',user,config);
+            setAuth({token: res.data.token});
+
+            //console.log(res.data);
+            localStorage.setItem('id',res.data.empleadoID);
+            localStorage.setItem('name',res.data.name);
+            localStorage.setItem('token',res.data.token);
+            //console.log(authState);
+
+        } catch (error) {
+            console.log(error.response.data.msg);
+        }
+    }
 
     const onSubmit = e => {
         e.preventDefault();
         console.log(user);
         if(name === '' || email === '' || password === ''){
             //missing info
+            console.log("Please fill all the inputs");
         }else if (password !== password2){
             //passwords do not match
+            console.log("Passwords do not match");
         }else{
             //register
-            navigate('/home');
+            registerUser();
         }
     }
+
+
     
     const showPassword = () =>{
         const toggle = document.getElementById('togglePassword');
@@ -78,8 +119,8 @@ const Register = props => {
                                 <input placeholder='Apellido Paterno' type='text' name = 'lastnameP' value={lastnameP} onChange = {onChange} required/>
                                 <input placeholder='Fecha de nacimiento' type='date' name = 'date' value={date} onChange = {onChange} required/>
                                 <select id="empleados" name='type' onChange = {onChange}>
-                                    <option value="Médic@">Médic@</option>
-                                    <option value="Enfermer@">Enfermer@</option>
+                                    <option value={1}>Médic@</option>
+                                    <option value={2}>Enfermer@</option>
                                 </select >
                                 <select  id="sexos" name='sex' onChange = {onChange}>
                                     <option value="Masculino">Masculino</option>
@@ -96,8 +137,10 @@ const Register = props => {
                                 </div>
                                 <div>
                                     <i className="bi bi-eye" id="togglePassword2" onClick={showPassword2}/>
-                                    <input id = "password2" placeholder='Confirmar Contraseña' type='password' name = 'password2' value={password2} onChange = {onChange} required/>
+                                    <input id = "password2" placeholder='Confirmar' type='password' name = 'password2' value={password2} onChange = {onChange} required/>
                                 </div>
+                                <input placeholder='URL img de perfil' type='text' name = 'pfp' value={pfp} onChange = {onChange} required/>
+
                             </div>
                         </div>
                         <br/>
