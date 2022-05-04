@@ -7,6 +7,7 @@ import TestGraph from "../../graph/TestGraph";
 import { Bar } from "react-chartjs-2";
 import ListCardTest from "./ListCardTest";
 import { useParams } from "react-router-dom";
+import BackButton from '../../BackButton'
 
 const HomeLink = "/moca/";
 
@@ -116,6 +117,10 @@ const Details = (props) => {
         }
       </div>
       <hr className="Line2"></hr>
+        <div className='BackButton'>
+            <BackButton 
+            link = '/Home'></BackButton>
+        </div>
     </div>
   );
 };
