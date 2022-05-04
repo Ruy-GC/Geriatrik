@@ -8,6 +8,7 @@ import dataset_filled from '../../images/dataset_filled.png'
 import dataset_unfilled from '../../images/dataset_unfilled.png'
 import { useNavigate  } from "react-router-dom"
 import { IconBase } from 'react-icons'
+import AddPatientButton from '../newPatient/AddPatientButton'
 import SearchBar from "../searchBar/searchBar";
 
 const Home = () => {
@@ -128,6 +129,7 @@ const Home = () => {
     <div style={{width: centeredHomeWidth}} className='centered-home'>
       <h1>Bienvenid@ de nuevo, {localStorage.getItem('name')}</h1>
       <Navbar />
+      <AddPatientButton />
       <div className='home-bar'>
         <div className='search'>
         <SearchBar 
