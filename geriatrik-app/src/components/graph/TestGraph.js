@@ -18,18 +18,18 @@ import { Bar } from "react-chartjs-2";
 Chart.register(...registerables)
     /*fecha1, fecha2, fecha3, fecha4,
     data1, data2, data3, data4,*/
-const TestGraph = () => {
+const TestGraph = ({date1, date2, date3, date4, data1, data2, data3, data4}) => {
     return (
       <div>
       <h1>Resultados tamizaje MOCA</h1>
       <div className='BarBox'>
         <Bar
           data={{
-            labels: ["22-09-2020", "22-03-2021", "22-09-2021", "22-03-2022"],
+            labels: {date1, date2, date3, date4},
             datasets: [
               {
                 label: "total de puntos por prueba",
-                data: ["28", "27", "27", "25"],
+                data: {data1, data2, data3, data4},
                 backgroundColor: ["aqua", "green", "red", "yellow"],
                 borderColor: ["aqua", "green", "red", "yellow"],
                 borderWidth: 0.5,
@@ -38,15 +38,6 @@ const TestGraph = () => {
           }}
           options={{
             maintainAspectRatio: false,
-            // scales: {
-            //   yAxes: [
-            //     {
-            //       ticks: {
-            //         beginAtZero: true,
-            //       },
-            //     },
-            //   ],
-            // }, REVISAR COMO POONER SCALES CORRECTO O BORRAR AL FINAL
             legend: {
               labels: {
                 fontSize: 15,
