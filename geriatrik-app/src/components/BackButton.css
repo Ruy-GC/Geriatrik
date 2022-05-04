@@ -1,0 +1,19 @@
+.Button{
+    background-color: #316CB0;
+    border-radius: 10px;
+    border-color:transparent;
+}
+
+.Arrow{
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 70px;
+}
+
+.Button:hover{
+    background-color: #104e95;
+    transition: transform 200ms ease-in;
+    transform: scale(1.05);
+}

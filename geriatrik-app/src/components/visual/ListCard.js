@@ -1,8 +1,8 @@
 import React from 'react'
 
-const ListCard = (props) => {
+const ListCard = (props, {patientObj}) => {
   return (
-    <tr className='list-item'>
+      <>
         <td>
             <div className="thumb-lg2">
                 <img
@@ -22,7 +22,7 @@ const ListCard = (props) => {
         <td>{props.patientObj.quejaMemoria ? "Si" : "No"}</td>
         <td>{props.patientObj.hipoacusia_severa ? "Si" : "No"}</td>
         <td>{props.patientObj.contactoEmergencia}</td>
-    </tr>
+      </>
   )
 }
 

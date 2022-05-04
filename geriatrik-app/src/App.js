@@ -8,6 +8,7 @@ import Home from "./components/pages/Home";
 import Reports from "./components/pages/Reports";
 import Navbar from "./components/Navbar";
 import Patient from "./components/pages/PatientCards/Patient";
+import Moca from "./components/pages/MocaPage/Moca";
 import NewPatient from './components/newPatient/NewPatient';
 
 function App() {
@@ -15,10 +16,11 @@ function App() {
         <Router>
             <Fragment>
                 <Routes>
+                    <Route path='/moca/:idEmpleado/:idPaciente' element = {<Moca/>}/>
                     <Route exact path='/' element = {<Login/>}/>
                     <Route exact path='/home' element = {<Home/>}/>
                     <Route exact path='/Register' element = {<Register/>}/>
-                    <Route exact path='/PatientCard' element = {<Patient/>}/>
+                    <Route exact path='/PatientCard/:id' element = {<Patient/>}/>
                     <Route exact path='/NewPatient' element = {<NewPatient/>}/>
                 </Routes>
             </Fragment>

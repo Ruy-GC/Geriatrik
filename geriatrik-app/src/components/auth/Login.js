@@ -1,41 +1,63 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import { useNavigate  } from "react-router-dom"
 import login from '../layout/images/login.PNG'
 import './auth.css'
+import axios from 'axios';
+import { useAlert } from 'react-alert'
 
 const Login = () => {
+    localStorage.clear();
+    const alert = useAlert()
 
-    const navigate = useNavigate ();
+    const navigate = useNavigate();
 
     const [user,setUser] = useState({
         email: '',
         password: ''
     });
 
+    const [authState,setAuth] = useState({
+        token: ''
+    });
+
+    useEffect(() => {
+        if(authState.token !== ''){
+            navigate('/home');
+        }
+        //eslint-disable-next-line
+    },[authState.token]);
+
     const {email,password} = user;
 
     const onChange = e => setUser({...user, [e.target.name]:e.target.value});
 
-    const onSubmit = e => {
-        e.preventDefault();
-        navigate('/home');
-        /*if(email === '' || password === ''){
-            //missing inputs
-        }else{
-            //login
-        }*/
+    const loginUser = async() => {
+        const config = {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }
+
+        try {
+            const res = await axios.post('/login',user,config);
+            setAuth({token: res.data.token});
+
+            localStorage.setItem('id',res.data.empleadoID);
+            localStorage.setItem('name',res.data.name);
+            localStorage.setItem('token',res.data.token);
+            alert.success('Bienvenid@ ' + res.data.name);
+
+        } catch (error) {
+            alert.error(error.response.data.msg);
+        }
     }
 
-    /*const togglePassword = document.querySelector('#togglePassword');
-    const passwordInput = document.querySelector('#password');
+    const onSubmit = e => {
+        e.preventDefault();
 
-    togglePassword.addEventListener('click', function (e) {
-        // toggle the type attribute
-        const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
-        passwordInput.setAttribute('type', type);
-        // toggle the eye / eye slash icon
-        this.classList.toggle('bi-eye-slash');
-    });*/
+        loginUser();
+
+    }
 
     const showPassword = () =>{
         const toggle = document.getElementById('togglePassword');
