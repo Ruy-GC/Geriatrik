@@ -16,7 +16,6 @@ import { useAlert } from 'react-alert'
 const Home = () => {
   const alert = useAlert()
   const navigate = useNavigate ();
-
   const [datos, setData] = useState(null);
 
   const loadPatients = async () => {
@@ -24,15 +23,18 @@ const Home = () => {
       const res = await axios.get('/patients');
       setData(res.data.message);
       alert.success('Patients loaded');
-
     } catch (error) {
       alert.error('Error while fetching patients');
     }
   }
 
   useEffect(() => {
-    loadPatients();
-  }, []);
+    if(!localStorage.token){
+      navigate('/');
+    }else{
+      loadPatients();
+    }
+  },[]);
 
   const OpenPatientCard = (currentPatient) => {
     //allow to naviigate through the routes

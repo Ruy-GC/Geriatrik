@@ -2,7 +2,7 @@ import './Moca.css';
 
 import Unity, {UnityContext} from 'react-unity-webgl';
 import { Fragment, useEffect, useState } from 'react';
-import { Navigate, useParams } from "react-router-dom";
+import { Navigate, useParams, useNavigate } from "react-router-dom";
 import axios from 'axios';
 import { useAlert } from 'react-alert'
 
@@ -20,7 +20,8 @@ const unityContext = new UnityContext({
 }); 
 
 function Moca() {
-  const alert = useAlert()
+  const navigate = useNavigate ();
+  const alert = useAlert();
   const [isUnityMounted, setIsUnityMounted] = useState(true);
   const [isLoaded, setIsLoaded] = useState(false);
   const [progression, setProgression] = useState(0);
@@ -29,13 +30,18 @@ function Moca() {
   const {idEmpleado, idPaciente} = useParams();
 
   useEffect(function(){
-    unityContext.on("progress", handleOnUnityProgress);
-    unityContext.on("loaded", handleOnUnityLoaded);
-    unityContext.on("MocaFinished", handleMocaFinish);
+    if(!localStorage.token){
+      navigate('/');
+    }else{
+      unityContext.on("progress", handleOnUnityProgress);
+      unityContext.on("loaded", handleOnUnityLoaded);
+      unityContext.on("MocaFinished", handleMocaFinish);
 
-    return function(){
-      unityContext.removeAllEventListeners();
-    };
+      return function(){
+        unityContext.removeAllEventListeners();
+      };
+    }
+    
   }, []);
 
   function handleOnUnityProgress(progression) {
