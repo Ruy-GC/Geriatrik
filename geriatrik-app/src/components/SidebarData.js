@@ -9,7 +9,7 @@ import * as MdIcons from 'react-icons/md'
 export const SidebarData = [
   {
     title: 'Profile',
-    path: '/profile',
+    path: '/profile/'+localStorage.getItem('id'),
     icon: <IoIcons.IoMdPerson />,
     cName: 'nav-text'
   },
