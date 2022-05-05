@@ -1,0 +1,32 @@
+
+.wrapper{
+    margin: auto;
+    padding: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    border-radius: 10px;
+} 
+
+
+.UserImg{
+    height: 35%;
+    width: 35%;
+    object-fit: cover;
+    clip-path: circle();
+    margin-top: 1rem;
+    
+}
+
+.UserName{
+    display: flex;
+    justify-content: center;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-size: 30px;
+}

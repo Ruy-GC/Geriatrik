@@ -28,7 +28,7 @@ function App() {
                     <Route path='/moca/:idEmpleado/:idPaciente' element = {<Moca/>}/>
                     <Route exact path='/' element = {<Login/>}/>
                     <Route exact path='/home' element = {<Home/>}/>
-                    <Route exact path='/profile' element = {<Profile/>}/>
+                    <Route exact path='/profile/:id' element = {<Profile/>}/>
                     <Route exact path='/Register' element = {<Register/>}/>
                     <Route exact path='/PatientCard/:id' element = {<Patient/>}/>
                 </Routes>
