@@ -10,12 +10,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import BackButton from '../../BackButton'
 import axios from 'axios';
 import { useAlert } from 'react-alert'
-
-
 const HomeLink = "/moca/";
-
-
-
 
 const Details = (props) => {
   const { id } = useParams(); // pacienteId
@@ -280,7 +275,6 @@ const PatientRegistry = (props) => {
   return (
     <div className="CardRegistry">
       <div className="CardBody">
-        <br></br>
         <h2 className="PatientRegistryT">Contacto de emergencia:</h2>
         <p className="PatientRegistryA">{props.emergencyC}</p>
         <br></br>
@@ -295,7 +289,6 @@ const PatientRegistry = (props) => {
         <br></br>
         <h2 className="PatientRegistryT">Hipoacusia severa:</h2>
         <p className="PatientRegistryA">{props.hipoacusia}</p>
-        <br></br>
       </div>
     </div>
   );

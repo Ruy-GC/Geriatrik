@@ -41,6 +41,7 @@ body{
     display: felx;
     flex-direction: column;
     justify-content: space-between;
+    align-content: center;
     cursor:pointer;
     transition: transform 200ms ease-in;
     height: 115%;
@@ -49,7 +50,7 @@ body{
     left: 1.5%;
     width: 13.4%;
     height: 48.5%;
-    
+    padding: 3px;
 }
 
 .CardDetails{
@@ -132,6 +133,7 @@ body{
     margin-right: 1rem;
     margin-left: 1rem;
     margin-bottom: 0px;
+    margin-top: 0px;
     font-family: "Poppins", sans-serif;
     font-weight: 600;
     font-size: 18px;
@@ -142,7 +144,7 @@ body{
 .PatientRegistryA{
     font-size: 20px;
     margin-top:0px;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.2rem;
     margin-left: 1rem;
     font-family: "Poppins", sans-serif;
     font-weight: 400;

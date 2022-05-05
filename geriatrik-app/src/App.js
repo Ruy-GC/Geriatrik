@@ -13,6 +13,7 @@ import Moca from "./components/pages/MocaPage/Moca";
 
 //utils
 import setAuthToken from "./utils/setAuthToken";
+import Profile from "./components/pages/Profile";
 
 //set auth token for all the web app
 if(localStorage.getItem('token')){
@@ -27,6 +28,7 @@ function App() {
                     <Route path='/moca/:idEmpleado/:idPaciente' element = {<Moca/>}/>
                     <Route exact path='/' element = {<Login/>}/>
                     <Route exact path='/home' element = {<Home/>}/>
+                    <Route exact path='/profile/:id' element = {<Profile/>}/>
                     <Route exact path='/Register' element = {<Register/>}/>
                     <Route exact path='/PatientCard/:id' element = {<Patient/>}/>
                 </Routes>
