@@ -11,6 +11,15 @@ import Patient from "./components/pages/PatientCards/Patient";
 import Moca from "./components/pages/MocaPage/Moca";
 import NewPatient from './components/newPatient/NewPatient';
 
+
+//utils
+import setAuthToken from "./utils/setAuthToken";
+
+//set auth token for all the web app
+if(localStorage.getItem('token')){
+    setAuthToken(localStorage.getItem('token')); 
+}
+
 function App() {
     return (
         <Router>

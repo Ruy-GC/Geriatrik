@@ -8,6 +8,7 @@ import { Bar } from "react-chartjs-2";
 import ListCardTest from "./ListCardTest";
 import { useParams } from "react-router-dom";
 import BackButton from '../../BackButton'
+import axios from 'axios';
 
 const HomeLink = "/moca/";
 
@@ -16,30 +17,42 @@ const HomeLink = "/moca/";
 
 const Details = (props) => {
   const { id } = useParams(); // pacienteId
-  const [datos, setData] = React.useState(null);
+  const [datos, setData] = useState(null);
   let valuesArray;
 
-  if(datos) {
-    var graphData = datos.map((currentGraph) => {
-    return(
-      currentGraph.puntos
-    );
-    });
-    var graphDates = datos.map((currentGraph) => {
+  const loadData = async () => {
+    try {
+      const res = await axios.get(`/tamizaje/${encodeURIComponent(props.patientID)}"`);
+      console.log(res);
+      setData(res.data.message);
+      console.log(datos);
+
+      alert.success('Data loaded');
+
+    } catch (error) {
+      alert.error('Error while fetching data');
+    }
+  }
+  useEffect(() => {
+    loadData();
+    if(datos) {
+      var graphData = datos.map((currentGraph) => {
       return(
-        currentGraph.fecha
+        currentGraph.puntos
       );
       });
-  }
-  
-
-  React.useEffect(() => {
-    fetch(`/tamizaje/${encodeURIComponent(props.patientID)}"`, {
+      var graphDates = datos.map((currentGraph) => {
+        return(
+          currentGraph.fecha
+        );
+        });
+    }
+    /*fetch(`/tamizaje/${encodeURIComponent(props.patientID)}"`, {
       method: "GET",
       headers: { "Content-Type": "application/json" },
     })
       .then((res) => res.json())
-      .then((data) => setData(data.message));
+      .then((data) => setData(data.message));*/
   }, []);
   // console.log(datos);
 
@@ -73,7 +86,7 @@ const Details = (props) => {
   // }
 
   function getMocaLink(){
-    return `/moca/${1}/${id}`
+    return `/moca/${localStorage.getItem('id')}/${id}`
   }
   //localStorage.getItem("id")
 
@@ -192,11 +205,26 @@ const getEdad = (dateString) => {
 const Patient = () => {
   const { id } = useParams();
   const [datos, setData] = React.useState(null);
-  React.useEffect(() => {
-    fetch("/patient/" + id)
+
+  const loadPatient = async () =>{
+    try {
+      const res = await axios.get("/patient/" + id);
+      setData(res.data.message);
+      console.log(datos);
+
+      alert.success('Patient loaded');
+
+    } catch (error) {
+      alert.error('Error while fetching data');
+    }
+  }
+
+  useEffect(() => {
+    loadPatient();
+    /*fetch("/patient/" + id)
       .then((res) => res.json())
-      .then((data) => setData(data.message));
-  }, [id]);
+      .then((data) => setData(data.message));*/
+  }, []);
   return !datos ? (
     <h1>Loading</h1>
   ) : (
