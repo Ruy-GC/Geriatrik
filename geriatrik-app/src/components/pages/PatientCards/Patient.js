@@ -30,8 +30,22 @@ const Details = (props) => {
     datos.map((currentTest) => {
       valuesArray = JSON.parse(currentTest.respuestasJSON);
       console.log(valuesArray);
-      // console.log(valuesArray)
-      // console.log(valuesArray.resultados.abstraccion)
+    });
+  }
+
+  if (datos) {
+    var graphDates = datos.map((currentGraph)  => {
+      return (
+        currentGraph.fecha
+      );
+    });
+  }
+
+  if (datos) {
+    var graphResults = datos.map((currentGraph)  => {
+      return (
+        currentGraph.puntos
+      );
     });
   }
 
@@ -49,7 +63,10 @@ const Details = (props) => {
   return (
     <div className="CardDetails">
       <div className="TestGraph">
-        <TestGraph />
+        <TestGraph
+        dates = {graphDates} 
+        data = {graphResults}
+        />
       </div>
       <div className="Botones">
         <TestButton
