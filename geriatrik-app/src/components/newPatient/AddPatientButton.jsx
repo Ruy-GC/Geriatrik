@@ -1,10 +1,12 @@
 import { useNavigate  } from "react-router-dom"
 import React, {useState} from 'react'
 import './newPatient.css'
+import { useAlert } from 'react-alert'
 
 
 const AddPatientButton = () => {
     const navigate = useNavigate ();
+    const alert = useAlert();
     /*  ---  MODAL FORM --- */
     
     //patient register fields
@@ -37,16 +39,24 @@ const AddPatientButton = () => {
             e.target.value = document.getElementById('hearingCheckbox').value;
         }
         setPatient({...patient, [e.target.name]:e.target.value}); 
+        console.log(e.target.value)
     }
     const onSubmit = e => {
         e.preventDefault();
         console.log(patient)
-        if(name === '' || lastName === '' || motherLastName === '' || birthday === '' || gender === '' || scholarity === '' || disabilities === '' || memoryComplaint === '' || severeHearingLoss === '' || emergencyContact === ''){
-            console.log('Missing info')
+        if(name === '' || lastName === '' || motherLastName === '' || birthday === '' || gender === '' || scholarity === '' || disabilities === '' || memoryComplaint === '' || severeHearingLoss === '' || emergencyContact === '' || image === ''){
             //missing info
-        }else{
-            console.log('Passed test')
-            addToDB(patient);
+        }
+        else{
+            try {
+                addToDB(patient);
+                close();
+                resetForm();
+                alert.success('Paciente añadido exitosamente');
+            } catch (error) {
+                alert.error(error.response.data.msg);
+            }
+            
         }
     }
     
@@ -74,6 +84,22 @@ const AddPatientButton = () => {
         }
     })
 
+    const resetForm = () => {
+        setPatient({...patient, 
+            "name"  : '',
+            "lastName"  : '',
+            "motherLastName": '',
+            "birthday": '',
+            "gender": '',
+            "scholarity": '',
+            "disabilities": '',
+            "memoryComplaint": false,
+            "severeHearingLoss": false,
+            "emergencyContact": '',
+            "image": ''
+        });
+    }
+
 
     /*  ---  ADD TO DATABASE --- */
 
@@ -96,7 +122,7 @@ const AddPatientButton = () => {
                     <a class = "close" onClick={close}>X</a>
                     <div class = "modal-text">
                         <h2 className='header'>Agregar nuevo paciente</h2>
-                        <form onSubmit={onSubmit}>
+                        <form id = "formulario" onSubmit={onSubmit}>
                             <div className='grid-2'>
                                 <div>
                                     <input placeholder='Nombre' type='text' name = 'name' value={name} onChange = {onChange} required/>
