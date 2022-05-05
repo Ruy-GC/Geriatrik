@@ -135,11 +135,11 @@ const Register = props => {
                                 <input placeholder='Correo Electrónico' type='email' name = 'email' value={email} onChange = {onChange} required/>
                                 <div>
                                     <i className="bi bi-eye" id="togglePassword" onClick={showPassword}/>
-                                    <input id = "password" placeholder='Contraseña' type='password' name = 'password' value={password} onChange = {onChange} required/>
+                                    <input id = "password" placeholder='Contraseña' type='password' name = 'password' value={password} onChange = {onChange} required minLength={6}/>
                                 </div>
                                 <div>
                                     <i className="bi bi-eye" id="togglePassword2" onClick={showPassword2}/>
-                                    <input id = "password2" placeholder='Confirmar' type='password' name = 'password2' value={password2} onChange = {onChange} required/>
+                                    <input id = "password2" placeholder='Confirmar' type='password' name = 'password2' value={password2} onChange = {onChange} required minLength={6}/>
                                 </div>
                                 <input placeholder='URL img de perfil' type='text' name = 'pfp' value={pfp} onChange = {onChange} required/>
 

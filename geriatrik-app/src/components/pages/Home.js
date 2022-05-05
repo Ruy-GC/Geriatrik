@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState,useEffect} from 'react'
 import Navbar from '../Navbar'
 import BubbleCard from '../visual/BubbleCard'
 import ListCard from '../visual/ListCard'
@@ -10,19 +10,31 @@ import { useNavigate  } from "react-router-dom"
 import { IconBase } from 'react-icons'
 import AddPatientButton from '../newPatient/AddPatientButton'
 import SearchBar from "../searchBar/searchBar";
+import axios from 'axios';
+import { useAlert } from 'react-alert'
 
 const Home = () => {
+  const alert = useAlert()
   const navigate = useNavigate ();
+  const [datos, setData] = useState(null);
 
-  const loadPatients = () => {
-    fetch("/patients").then((res) => res.json()).then((data) => setData(data.message));
+  const loadPatients = async () => {
+    try {
+      const res = await axios.get('/patients');
+      setData(res.data.message);
+      alert.success('Patients loaded');
+    } catch (error) {
+      alert.error('Error while fetching patients');
+    }
   }
-  const [datos, setData] = React.useState(null);
-  React.useEffect(() => {
-    fetch("/patients")
-      .then((res) => res.json())
-      .then((data) => setData(data.message));
-  }, []);
+
+  useEffect(() => {
+    if(!localStorage.token){
+      navigate('/');
+    }else{
+      loadPatients();
+    }
+  },[]);
 
   const OpenPatientCard = (currentPatient) => {
     //allow to naviigate through the routes
@@ -43,8 +55,6 @@ const Home = () => {
   const query = new URLSearchParams(search).get('s');
   const [searchQuery, setSearchQuery] = useState(query || '');
   const filteredPosts = filterPosts(datos, searchQuery);
-  
-  
 
   const [tipoVista, setVista] = useState("Grid");
   //loadPatients(); En caso de que quieran drenar la memoria activenlo, pero se activa un listener para nuevos datos

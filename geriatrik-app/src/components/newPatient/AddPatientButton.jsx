@@ -116,11 +116,11 @@ const AddPatientButton = () => {
 
     return(
         <section>
-            <a href="#" class='addPatientButton' onClick={open}>.</a>
-            <div class = "modal-container">
-                <div class = "modal modal-close">
-                    <a class = "close" onClick={close}>X</a>
-                    <div class = "modal-text">
+            <a href="#" className='addPatientButton' onClick={open}>.</a>
+            <div className = "modal-container">
+                <div className = "modal modal-close">
+                    <a className = "close" onClick={close}>X</a>
+                    <div className = "modal-text">
                         <h2 className='header'>Agregar nuevo paciente</h2>
                         <form id = "formulario" onSubmit={onSubmit}>
                             <div className='grid-2'>
@@ -138,20 +138,20 @@ const AddPatientButton = () => {
                                 </div>
                                 <div>
                                     <input placeholder='Discapacidades' type='text' name = 'disabilities' value={disabilities} onChange = {onChange} required/>
-                                    <div class ='toggle-div'>
-                                        <label class ='toggle-label'>Queja de Memoria</label>
-                                        <label class="toggle">
+                                    <div className ='toggle-div'>
+                                        <label className ='toggle-label'>Queja de Memoria</label>
+                                        <label className="toggle">
                                             <input id='memoryCheckbox' type='checkbox' name = 'memoryComplaint' onChange = {onChange} />
-                                            <span class = "slider"></span>
-                                            <span class ="labels" data-on="SI" data-off="NO"></span>
+                                            <span className = "slider"></span>
+                                            <span className ="labels" data-on="SI" data-off="NO"></span>
                                         </label>
                                     </div>
-                                    <div class ='toggle-div'>    
-                                        <label class ='toggle-label'>Hipoacusia severa</label>
-                                        <label class="toggle">
+                                    <div className ='toggle-div'>    
+                                        <label className ='toggle-label'>Hipoacusia severa</label>
+                                        <label className="toggle">
                                         <input id='hearingCheckbox' type='checkbox' name = 'severeHearingLoss' onChange = {onChange} />
-                                            <span class = "slider"></span>
-                                            <span class ="labels" data-on="SI" data-off="NO"></span>
+                                            <span className = "slider"></span>
+                                            <span className ="labels" data-on="SI" data-off="NO"></span>
                                         </label>
                                     </div>
                                 
