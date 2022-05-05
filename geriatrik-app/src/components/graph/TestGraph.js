@@ -38,15 +38,6 @@ const TestGraph = (props) => {
           }}
           options={{
             maintainAspectRatio: false,
-            // scales: {
-            //   yAxes: [
-            //     {
-            //       ticks: {
-            //         beginAtZero: true,
-            //       },
-            //     },
-            //   ],
-            // }, REVISAR COMO POONER SCALES CORRECTO O BORRAR AL FINAL
             legend: {
               labels: {
                 fontSize: 15,
