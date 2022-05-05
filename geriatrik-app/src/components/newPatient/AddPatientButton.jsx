@@ -2,6 +2,7 @@ import { useNavigate  } from "react-router-dom"
 import React, {useState} from 'react'
 import './newPatient.css'
 import { useAlert } from 'react-alert'
+import axios from "axios"
 
 
 const AddPatientButton = () => {
@@ -45,13 +46,14 @@ const AddPatientButton = () => {
         e.preventDefault();
         console.log(patient)
         if(name === '' || lastName === '' || motherLastName === '' || birthday === '' || gender === '' || scholarity === '' || disabilities === '' || memoryComplaint === '' || severeHearingLoss === '' || emergencyContact === '' || image === ''){
-            //missing info
+            alert.error('Missing patient info');
         }
         else{
             try {
                 addToDB(patient);
                 close();
                 resetForm();
+                window.location.reload(false);
                 alert.success('Paciente añadido exitosamente');
             } catch (error) {
                 alert.error(error.response.data.msg);
@@ -103,15 +105,25 @@ const AddPatientButton = () => {
 
     /*  ---  ADD TO DATABASE --- */
 
-    const addToDB = (patient) => {
+    const addToDB = async (patient) => {
         console.log(JSON.stringify(patient));
-        fetch("/addPatient", {
+        try {
+            const config = {
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }
+            const res = await axios.post('/addPatient',patient,config);
+        } catch (error) {
+            alert.error("Could not add patient");
+        }
+        /*fetch("/addPatient", {
           method: 'POST',
           headers:{
             'Content-type': 'application/json; charset=UTF-8'
           },
           body: JSON.stringify(patient)
-        }).then(console.log("Data inserted to paciente in geriatrik DB"));
+        }).then(console.log("Data inserted to paciente in geriatrik DB"));*/
     }
 
     return(

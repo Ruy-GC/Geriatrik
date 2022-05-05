@@ -50,7 +50,6 @@ const Register = props => {
                 'Content-Type': 'application/json'
             }
         }
-        console.log(user);
 
         try {
             const res = await axios.post('/register',user,config);
