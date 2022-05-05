@@ -8,20 +8,20 @@ import * as MdIcons from 'react-icons/md'
 
 export const SidebarData = [
   {
-    title: 'Home',
-    path: '/',
+    title: 'Profile',
+    path: '/profile',
     icon: <IoIcons.IoMdPerson />,
     cName: 'nav-text'
   },
   {
-    title: 'Reports',
-    path: '/reports',
+    title: 'Home',
+    path: '/home',
     icon: <CgIcons.CgFile />,
     cName: 'nav-text'
   },
   {
-    title: 'Products',
-    path: '/products',
+    title: 'Logout',
+    path: '/',
     icon: <MdIcons.MdLogout />,
     cName: 'nav-text'
   }
