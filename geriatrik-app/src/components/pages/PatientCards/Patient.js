@@ -81,8 +81,8 @@ const Details = (props) => {
     <div className="CardDetails">
       <div className="TestGraph">
         <TestGraph
-        dates = {graphDates} 
-        data = {graphResults}
+        graphDates = {graphDates} 
+        graphResults = {graphResults}
         />
       </div>
       <div className="Botones">

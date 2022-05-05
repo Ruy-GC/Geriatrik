@@ -93,7 +93,6 @@ function Moca() {
 
   return(
     <div>
-      <h1>Empleado = {idEmpleado}, Paciente = {idPaciente}</h1>
     <Fragment>
     <div className='wrapper'>
       {isUnityMounted === true && (
