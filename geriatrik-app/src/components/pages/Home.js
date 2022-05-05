@@ -114,6 +114,7 @@ const Home = () => {
                 <tbody>
                   {
                   filteredPosts.map((currentPatient) => {
+                    currentPatient.fechaNac = currentPatient.fechaNac.slice(0,10);
                     return(
                       <tr className='list-item' onClick={() => OpenPatientCard(currentPatient)} style={{cursor: 'pointer'}}>
                         <ListCard
@@ -139,7 +140,7 @@ const Home = () => {
     <div style={{width: centeredHomeWidth}} className='centered-home'>
       <h1>Bienvenid@ de nuevo, {localStorage.getItem('name')}</h1>
       <Navbar />
-      <AddPatientButton />
+      <AddPatientButton/>
       <div className='home-bar'>
         <div className='search'>
         <SearchBar 
