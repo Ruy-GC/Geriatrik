@@ -18,21 +18,21 @@ import { Bar } from "react-chartjs-2";
 Chart.register(...registerables)
     /*fecha1, fecha2, fecha3, fecha4,
     data1, data2, data3, data4,*/
-const TestGraph = () => {
+const TestGraph = (props) => {
     return (
       <div>
       <h1>Resultados tamizaje MOCA</h1>
       <div className='BarBox'>
         <Bar
           data={{
-            labels: ["22-09-2020", "22-03-2021", "22-09-2021", "22-03-2022"],
+            labels: props.graphsDates,
             datasets: [
               {
                 label: "total de puntos por prueba",
-                data: ["28", "27", "27", "25"],
-                backgroundColor: ["aqua", "green", "red", "yellow"],
-                borderColor: ["aqua", "green", "red", "yellow"],
-                borderWidth: 0.5,
+                data: props.GraphData,
+                backgroundColor: ["#E494D3", "#957DAD", "#88BBE4", "#87DCC0"],
+                borderColor: ["#E494D3", "#957DAD", "#88BBE4", "#87DCC0"],
+                borderWidth: "2px",
               },
             ],
           }}

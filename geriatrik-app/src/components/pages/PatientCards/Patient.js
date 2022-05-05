@@ -11,10 +11,27 @@ import BackButton from '../../BackButton'
 
 const HomeLink = "/moca/";
 
+
+
+
 const Details = (props) => {
   const { id } = useParams(); // pacienteId
   const [datos, setData] = React.useState(null);
   let valuesArray;
+
+  if(datos) {
+    var graphData = datos.map((currentGraph) => {
+    return(
+      currentGraph.puntos
+    );
+    });
+    var graphDates = datos.map((currentGraph) => {
+      return(
+        currentGraph.fecha
+      );
+      });
+  }
+  
 
   React.useEffect(() => {
     fetch(`/tamizaje/${encodeURIComponent(props.patientID)}"`, {
@@ -49,7 +66,9 @@ const Details = (props) => {
   return (
     <div className="CardDetails">
       <div className="TestGraph">
-        <TestGraph />
+        <TestGraph 
+          GraphData = {graphData}
+          graphsDates = {graphDates}/>
       </div>
       <div className="Botones">
         <TestButton
