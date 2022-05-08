@@ -1,7 +1,7 @@
 # Geriatrik
 Geriatrik is a web application developed for an organization (El club de los abuelos) that helps the elderly. The main focus is the optimization of the taking of screenings carried out by the doctors
 
-This proyect was developed by:
+This project was developed by:
 
 - [Ruy Guzmán Camacho](https://github.com/Ruy-GC)
 - [Carlo Ángel Luján García](https://github.com/CarloLj)
@@ -13,7 +13,7 @@ This proyect was developed by:
 
 
 ## Goals
-The proyect´s main goal is to improve the current testing processes that happen everyday at "El club de los abuelos" by creating an app that is easy to use and helps in mulitple tasks such as:
+The project´s main goal is to improve the current testing processes that happen everyday at "El club de los abuelos" by creating an app that is easy to use and helps in mulitple tasks such as:
 
 - Monitorization of the needs and health of the patients
 - Application of tests 
