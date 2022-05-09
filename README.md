@@ -143,4 +143,4 @@ export default setAuthToken;
 ```
 ## API Repo
 
-### [Geriatrik API](https://github.com/CarloLj/Geriatrik-API)
+### [Geriatrik API](https://github.com/Ruy-GC/Geriatrik-API)
