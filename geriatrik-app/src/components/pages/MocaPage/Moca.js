@@ -80,7 +80,7 @@ function Moca() {
             'Content-Type': 'application/json; charset=UTF-8'
         }
     }
-      const res = await axios.post('/moca',JSON.stringify(respuesta),config);
+      const res = await axios.post('https://geriatrik-api.herokuapp.com/moca',JSON.stringify(respuesta),config);
       if(res){
         alert.success('Test saved');
       }

@@ -19,7 +19,7 @@ const Home = () => {
 
   const loadPatients = async () => {
     try {
-      const res = await axios.get('/patients');
+      const res = await axios.get('https://geriatrik-api.herokuapp.com/patients');
       setData(res.data.message);
       alert.success('Patients loaded');
     } catch (error) {

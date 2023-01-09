@@ -12,7 +12,7 @@ const Profile = () => {
   const navigate = useNavigate();
   const loadProfile = async () => {
     try {
-      const res = await axios.get("/profile/" + id);
+      const res = await axios.get("https://geriatrik-api.herokuapp.com/profile/" + id);
       setData(res.data.message);
       console.log(datos);
 

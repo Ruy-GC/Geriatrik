@@ -17,7 +17,7 @@ const Details = (props) => {
 
   const loadData = async () => {
     try {
-      const res = await axios.get(`/tamizaje/${encodeURIComponent(props.patientID)}"`);
+      const res = await axios.get(`https://geriatrik-api.herokuapp.com/tamizaje/${encodeURIComponent(props.patientID)}"`);
       console.log(res);
       setData(res.data.message);
       console.log(datos);
@@ -195,7 +195,7 @@ const Patient = () => {
   const navigate = useNavigate();
   const loadPatient = async () =>{
     try {
-      const res = await axios.get("/patient/" + id);
+      const res = await axios.get("https://geriatrik-api.herokuapp.com/patient/" + id);
       setData(res.data.message);
       console.log(datos);
 

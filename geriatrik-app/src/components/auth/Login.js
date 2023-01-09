@@ -35,11 +35,12 @@ const Login = () => {
         const config = {
             headers: {
                 'Content-Type': 'application/json'
-            }
+            },
+            withCredentials: false,
         }
 
         try {
-            const res = await axios.post('/login',user,config);
+            const res = await axios.post('https://geriatrik-api.herokuapp.com/login',user,config);
             setAuth({token: res.data.token});
 
             localStorage.setItem('id',res.data.empleadoID);

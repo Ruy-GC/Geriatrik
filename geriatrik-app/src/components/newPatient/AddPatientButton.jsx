@@ -110,7 +110,7 @@ const AddPatientButton = () => {
                     'Content-Type': 'application/json'
                 }
             }
-            await axios.post('/addPatient',patient,config);
+            await axios.post('https://geriatrik-api.herokuapp.com/addPatient',patient,config);
         } catch (error) {
             alert.error("Could not add patient");
         }
