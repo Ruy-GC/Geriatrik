@@ -19,7 +19,7 @@ if(localStorage.getItem('token')){
 
 function App() {
     return (
-        <Router basename="/Geriatrik">
+        <Router>
             <Fragment>
                 <Routes>
                     <Route path='/moca/:idEmpleado/:idPaciente' element = {<Moca/>}/>
