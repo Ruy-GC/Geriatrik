@@ -73,9 +73,35 @@ body{
 .Botones{
     position:absolute;
     top: 13%;
-    left: 78%;
-    width: 81.5%;
+    left: 70%;
     height: 94.5%;
+}
+
+@media (min-width: 850px) {
+    .Botones{
+        position:absolute;
+        top: 13%;
+        left: 60%;
+        height: 94.5%;    
+    }
+}
+
+@media (min-width: 1300px) {
+    .Botones{
+        position:absolute;
+        top: 13%;
+        left: 70%;
+        height: 94.5%;    
+    }
+}
+
+@media (min-width: 1700px) {
+    .Botones{
+        position:absolute;
+        top: 13%;
+        left: 78%;
+        height: 94.5%;
+    }
 }
 
 .Line1 {

@@ -1,4 +1,3 @@
-import { useNavigate  } from "react-router-dom"
 import React, {useState} from 'react'
 import './newPatient.css'
 import { useAlert } from 'react-alert'
@@ -6,7 +5,6 @@ import axios from "axios"
 
 
 const AddPatientButton = () => {
-    const navigate = useNavigate ();
     const alert = useAlert();
     /*  ---  MODAL FORM --- */
     
@@ -40,7 +38,6 @@ const AddPatientButton = () => {
             e.target.value = document.getElementById('hearingCheckbox').value;
         }
         setPatient({...patient, [e.target.name]:e.target.value}); 
-        console.log(e.target.value)
     }
     const onSubmit = e => {
         e.preventDefault();
@@ -113,7 +110,7 @@ const AddPatientButton = () => {
                     'Content-Type': 'application/json'
                 }
             }
-            const res = await axios.post('/addPatient',patient,config);
+            await axios.post('/addPatient',patient,config);
         } catch (error) {
             alert.error("Could not add patient");
         }
@@ -128,7 +125,7 @@ const AddPatientButton = () => {
 
     return(
         <section>
-            <a href="#" className='addPatientButton' onClick={open}>.</a>
+            <a className='addPatientButton' onClick={open}>.</a>
             <div className = "modal-container">
                 <div className = "modal modal-close">
                     <a className = "close" onClick={close}>X</a>
@@ -142,7 +139,7 @@ const AddPatientButton = () => {
                                     <input placeholder='Apellido Materno' type='text' name = 'motherLastName' value={motherLastName} onChange = {onChange} required/>
                                     <input type='date' name = 'birthday' value={birthday} onChange = {onChange} required/>
                                     <select  placeholder='Sexo' id="sexos" name='gender' onChange = {onChange}>
-                                        <option disabled selected>Sexo</option>
+                                        <option disabled value={"none"}>Sexo</option>
                                         <option value="H">Masculino</option>
                                         <option value="M">Femenino</option>
                                     </select >

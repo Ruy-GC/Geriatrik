@@ -7,7 +7,6 @@ import viewlist_unfilled from '../../images/viewlist_unfilled.png'
 import dataset_filled from '../../images/dataset_filled.png'
 import dataset_unfilled from '../../images/dataset_unfilled.png'
 import { useNavigate  } from "react-router-dom"
-import { IconBase } from 'react-icons'
 import AddPatientButton from '../newPatient/AddPatientButton'
 import SearchBar from "../searchBar/searchBar";
 import axios from 'axios';
@@ -34,6 +33,8 @@ const Home = () => {
     }else{
       loadPatients();
     }
+    //loadPatients();
+
   },[]);
 
   const OpenPatientCard = (currentPatient) => {

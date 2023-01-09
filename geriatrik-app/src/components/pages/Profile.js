@@ -1,11 +1,10 @@
 import React, { useEffect } from "react";
-import { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useAlert } from "react-alert";
 import "./Profile.css";
 import Navbar from "../Navbar";
-import { MdEmail } from "react-icons/md";
+
 const Profile = () => {
   const { id } = useParams();
   const [datos, setData] = React.useState(null);
@@ -17,7 +16,7 @@ const Profile = () => {
       setData(res.data.message);
       console.log(datos);
 
-      alert.success("Patient loaded");
+      alert.success("Profile loaded");
     } catch (error) {
       alert.error("Error while fetching data");
     }
@@ -28,19 +27,17 @@ const Profile = () => {
     } else {
       loadProfile();
     }
-    /*fetch("/patient/" + id)
-      .then((res) => res.json())
-      .then((data) => setData(data.message));*/
-  }, []);
+
+  },[]);
 
   if (datos) {
     var name =
       datos[0].nombre + " " + datos[0].apellidoP + " " + datos[0].apellidoM;
     var fechaNac = datos[0].fechaNac.slice(0, 10);
     var type;
-    if (datos[0].tipoEmpleado == 1) {
+    if (datos[0].tipoEmpleado === 1) {
       type = "Doctor@";
-    } else if (datos[0].tipoEmpleado == 2) {
+    } else if (datos[0].tipoEmpleado === 2) {
       type = "Enfermer@";
     } else {
       type = "Aplicador@";

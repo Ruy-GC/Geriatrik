@@ -3,8 +3,8 @@
     height: 60px;
     width: 200px;
     display: flex;
-    justify-content: end;
-    align-items: end;
+    justify-content: flex-end;
+    align-items: flex-end;
     border-radius: 0px 40px 40px 0px;
     position: fixed;
     margin-top: 350px;
@@ -18,7 +18,7 @@
     height: 60px;
     width: 200px;
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     align-items: flex-end;
     border-radius: 0px 40px 40px 0px;
     position: fixed;
@@ -61,7 +61,7 @@
   
   .nav-text {
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
     align-items: center;
     padding: 8px 0px 8px 16px;
     list-style: none;

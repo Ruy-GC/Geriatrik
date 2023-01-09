@@ -1,10 +1,8 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
-import OldMan from "../../layout/images/OldManPic.jpg";
 import "./Patient.css";
 import TestButton from "../../TestButton";
 import TestGraph from "../../graph/TestGraph";
-import { Bar } from "react-chartjs-2";
 import ListCardTest from "./ListCardTest";
 import { useParams, useNavigate } from "react-router-dom";
 import BackButton from '../../BackButton'
@@ -33,25 +31,18 @@ const Details = (props) => {
   useEffect(() => {
     loadData();
     if(datos) {
-      var graphData = datos.map((currentGraph) => {
+      datos.map((currentGraph) => {
       return(
         currentGraph.puntos
       );
       });
-      var graphDates = datos.map((currentGraph) => {
+      datos.map((currentGraph) => {
         return(
           currentGraph.fecha
         );
         });
     }
-    /*fetch(`/tamizaje/${encodeURIComponent(props.patientID)}"`, {
-      method: "GET",
-      headers: { "Content-Type": "application/json" },
-    })
-      .then((res) => res.json())
-      .then((data) => setData(data.message));*/
   }, []);
-  // console.log(datos);
 
   if (datos) {
     datos.map((currentTest) => {
@@ -76,16 +67,11 @@ const Details = (props) => {
     });
   }
 
-  // if (valuesArray) {
-  //   valuesArray.map((dato) => {
-  //     console.log(dato)
-  //   })
-  // }
+  
 
   function getMocaLink(){
     return `/moca/${localStorage.getItem('id')}/${id}`
   }
-  //localStorage.getItem("id")
 
   return (
     <div className="CardDetails">
@@ -223,12 +209,10 @@ const Patient = () => {
   useEffect(() => {
     if(!localStorage.token){
       navigate('/');
-    }else{
-      loadPatient();
     }
-    /*fetch("/patient/" + id)
-      .then((res) => res.json())
-      .then((data) => setData(data.message));*/
+    
+    loadPatient();
+
   }, []);
   return !datos ? (
     <h1>Loading</h1>

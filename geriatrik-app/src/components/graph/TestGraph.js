@@ -1,14 +1,3 @@
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend,
-} from 'chart.js'
-
 import { Chart, registerables } from 'chart.js'
 
 import './TestGraph.css' 

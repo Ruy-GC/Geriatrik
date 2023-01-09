@@ -54,7 +54,6 @@ function Moca() {
 
   function handleMocaFinish(results){
     setMocaResults(results);
-    console.log(results);
     saveResults(results).then(() =>{setRedirect(true);});
   }
 
@@ -88,13 +87,7 @@ function Moca() {
     } catch (error) {
       alert.error('Failed to save test');
     }
-    /*fetch("/moca", {
-      method: 'POST',
-      headers:{
-        'Content-type': 'application/json; charset=UTF-8'
-      },
-      body: JSON.stringify(respuesta)
-    });*/
+
   }
 
   function handleOnClickUnMountUnity() {
