@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/Geriatrik/static/css/main.0eb1554e.css",
-    "main.js": "/Geriatrik/static/js/main.3e5eb275.js",
+    "main.js": "/Geriatrik/static/js/main.593725f6.js",
     "static/js/787.0c300797.chunk.js": "/Geriatrik/static/js/787.0c300797.chunk.js",
     "static/media/login.PNG": "/Geriatrik/static/media/login.0288430e0cdc8c5de552.PNG",
     "index.html": "/Geriatrik/index.html",
     "main.0eb1554e.css.map": "/Geriatrik/static/css/main.0eb1554e.css.map",
-    "main.3e5eb275.js.map": "/Geriatrik/static/js/main.3e5eb275.js.map",
+    "main.593725f6.js.map": "/Geriatrik/static/js/main.593725f6.js.map",
     "787.0c300797.chunk.js.map": "/Geriatrik/static/js/787.0c300797.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.0eb1554e.css",
-    "static/js/main.3e5eb275.js"
+    "static/js/main.593725f6.js"
   ]
 }
