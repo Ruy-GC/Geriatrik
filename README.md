@@ -1,5 +1,7 @@
-# Geriatrik
+# [Geriatrik](https://geriatrik.netlify.app)
 Geriatrik is a web application developed for an organization (El club de los abuelos) that helps the elderly. The main focus is the optimization of the taking of screenings carried out by the doctors
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/c61a43f8-86a9-412b-9549-544080e1b5f1/deploy-status)](https://app.netlify.com/sites/geriatrik/deploys)
 
 This project was developed by:
 
